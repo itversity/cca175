@@ -377,6 +377,10 @@
   <div class="section" id="basic-transformations">
 <h1><span class="section-number">2. </span>Basic Transformations<a class="headerlink" href="#basic-transformations" title="Permalink to this headline">¶</a></h1>
 <p>As part of this section we will see basic transformations we can perform on top of Data Frames such as filtering, aggregations, joins etc using SQL. We will build end to end solution by taking a simple problem statement.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/w4IZNOCEcd4?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Spark SQL – Overview</p></li>
 <li><p>Define Problem Statement</p></li>
@@ -415,6 +419,10 @@
 <h2><span class="section-number">2.1. </span>Spark SQL – Overview<a class="headerlink" href="#spark-sql-overview" title="Permalink to this headline">¶</a></h2>
 <p>Let us get an overview of Spark SQL.</p>
 <p>Here are the standard operations which we typically perform as part of processing the data. In Spark we can perform these using Data Frame APIs or <strong>Spark SQL</strong>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/R7n6wDILtos?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Selection or Projection – select clause</p>
 <ul>
@@ -474,6 +482,10 @@
 <div class="section" id="define-problem-statement">
 <h2><span class="section-number">2.2. </span>Define Problem Statement<a class="headerlink" href="#define-problem-statement" title="Permalink to this headline">¶</a></h2>
 <p>Let us define problemt statement to get an overview of basic transformations using Spark SQL.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/dRbLxxpSeS8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Get Daily Product Revenue using orders and order_items data set.</p></li>
 <li><p>We have following fields in <strong>orders</strong>.</p>
@@ -509,6 +521,10 @@
 <div class="section" id="preparing-tables">
 <h2><span class="section-number">2.3. </span>Preparing Tables<a class="headerlink" href="#preparing-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us prepare the tables to solve the problem.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/TZlQ2hohgck?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Make sure database is created.</p></li>
 <li><p>Create <strong>orders</strong> table.</p></li>
@@ -848,6 +864,10 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/order_items&#39; INTO TABLE order_it
 <div class="section" id="projecting-data">
 <h2><span class="section-number">2.4. </span>Projecting Data<a class="headerlink" href="#projecting-data" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand different aspects of projecting data. We primarily using <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> to project the data.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/8BBzd60hYFc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>We can project all columns using <code class="docutils literal notranslate"><span class="pre">*</span></code> or some columns using column names.</p></li>
 <li><p>We can provide aliases to a column or expression using <code class="docutils literal notranslate"><span class="pre">AS</span></code> in <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> clause.</p></li>
@@ -989,6 +1009,10 @@ FROM orders LIMIT 10
 <div class="section" id="filtering-data">
 <h2><span class="section-number">2.5. </span>Filtering Data<a class="headerlink" href="#filtering-data" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how we can filter the data in Spark SQL.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/x6sUnQ553Ow?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>We use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause to filter the data.</p></li>
 <li><p>All comparison operators such as <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, etc can be used to compare a column or expression or literal with another column or expression or literal.</p></li>
@@ -1438,6 +1462,10 @@ INSERT INTO students VALUES
 <div class="section" id="joining-tables-inner">
 <h2><span class="section-number">2.6. </span>Joining Tables - Inner<a class="headerlink" href="#joining-tables-inner" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to join data from multiple tables.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/gKAhugUD218?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p><strong>Spark SQL</strong> supports ASCII style join (<strong>JOIN with ON</strong>).</p></li>
 <li><p>There are different types of joins.</p>
@@ -1725,6 +1753,10 @@ LIMIT 10
 <div class="section" id="joining-tables-outer">
 <h2><span class="section-number">2.7. </span>Joining Tables - Outer<a class="headerlink" href="#joining-tables-outer" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to perform outer joins using Spark SQL. There are 3 different types of outer joins.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/RSE61x6B_90?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>LEFT OUTER JOIN (default) - Get all the records from both the datasets which satisfies JOIN condition along with those records which are in the left side table but not in the right side table.</p></li>
 <li><p>RIGHT OUTER JOIN - Get all the records from both the datasets which satisfies JOIN condition along with those records which are in the right side table but not in the left side table.</p></li>
@@ -1970,6 +2002,10 @@ WHERE oi.order_item_order_id IS NULL
 <div class="section" id="aggregating-data">
 <h2><span class="section-number">2.8. </span>Aggregating Data<a class="headerlink" href="#aggregating-data" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to aggregate the data.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/sbKVUr7fZCk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>We can perform global aggregations as well as aggregations by key.</p></li>
 <li><p>Global Aggregations</p>
@@ -2260,6 +2296,10 @@ LIMIT 10
 <div class="section" id="sorting-data">
 <h2><span class="section-number">2.9. </span>Sorting Data<a class="headerlink" href="#sorting-data" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to sort the data using <strong>Spark SQL</strong>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/zh3fWDXknfg?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>We typically perform sorting as final step.</p></li>
 <li><p>Sorting can be done either by using one field or multiple fields.</p></li>
@@ -2377,6 +2417,10 @@ LIMIT 10
 <div class="section" id="conclusion-final-solution">
 <h2><span class="section-number">2.10. </span>Conclusion - Final Solution<a class="headerlink" href="#conclusion-final-solution" title="Permalink to this headline">¶</a></h2>
 <p>Let us review the Final Solution for our problem statement <strong>daily_product_revenue</strong>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/p83npp8FYe0?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Prepare tables</p>
 <ul>
