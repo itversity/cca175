@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -410,10 +410,13 @@
 <p>Let us understand prerequisites before getting into the module.</p>
 <ul class="simple">
 <li><p>Good understanding of Data Processing using Python.</p></li>
-<li><p>Data Processing Life Cycle</p></li>
+<li><p>Data Processing Life Cycle</p>
+<ul>
 <li><p>Reading Data from files</p></li>
 <li><p>Processing Data using APIs</p></li>
 <li><p>Writing Processed Data back to files</p></li>
+</ul>
+</li>
 <li><p>We can also use Databases as sources and sinks. It will be covered at a later point in time.</p></li>
 <li><p>We can also read data in streaming fashion which is out of the scope of this course.</p></li>
 </ul>
@@ -455,14 +458,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spark = org.apache.spark.sql.SparkSession@41911b81
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>org.apache.spark.sql.SparkSession@41911b81
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,17 +472,23 @@
 <p>Let us get the overview of Spark read APIs to read files of different formats.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">spark</span></code> has a bunch of APIs to read data from files of different formats.</p></li>
-<li><p>All APIs are exposed under <code class="docutils literal notranslate"><span class="pre">spark.read</span></code></p></li>
+<li><p>All APIs are exposed under <code class="docutils literal notranslate"><span class="pre">spark.read</span></code></p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">text</span></code> - to read single column data from text files as well as reading each of the whole text file as one record.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">csv</span></code>- to read text files with delimiters. Default is a comma, but we can use other delimiters as well.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">json</span></code> - to read data from JSON files</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">orc</span></code> - to read data from ORC files</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">parquet</span></code> - to read data from Parquet files.</p></li>
 <li><p>We can also read data from other file formats by plugging in and by using <code class="docutils literal notranslate"><span class="pre">spark.read.format</span></code></p></li>
-<li><p>We can also pass options based on the file formats.</p></li>
+</ul>
+</li>
+<li><p>We can also pass options based on the file formats.</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">inferSchema</span></code> - to infer the data types of the columns based on the data.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">header</span></code> - to use header to get the column names in case of text files.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">schema</span></code> - to explicitly specify the schema.</p></li>
+</ul>
+</li>
 <li><p>We can get the help on APIs like <code class="docutils literal notranslate"><span class="pre">spark.read.csv</span></code> using <code class="docutils literal notranslate"><span class="pre">help(spark.read.csv)</span></code>.</p></li>
 <li><p>Reading delimited data from text files.</p></li>
 </ul>
@@ -530,9 +531,12 @@
 <p>Let us read one of the files and understand more about the data to determine right API with right options to process data later.</p>
 <ul class="simple">
 <li><p>Our airlines data is in text file format.</p></li>
-<li><p>We can use <code class="docutils literal notranslate"><span class="pre">spark.read.text</span></code> on one of the files to preview the data and understand the following</p></li>
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">spark.read.text</span></code> on one of the files to preview the data and understand the following</p>
+<ul>
 <li><p>Whether header is present in files or not.</p></li>
 <li><p>Field Delimiter that is being used.</p></li>
+</ul>
+</li>
 <li><p>Once we determine details about header and field delimiter we can use <code class="docutils literal notranslate"><span class="pre">spark.read.csv</span></code> with appropriate options to read the data.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -822,16 +826,22 @@
 <li><p>Functions to process column values are available under <code class="docutils literal notranslate"><span class="pre">pyspark.sql.functions</span></code>. These are typically used in select or withColumn on top of Data Frame.</p></li>
 <li><p>There are approximately 300 pre-defined functions available for us.</p></li>
 <li><p>Some of the important functions can be broadly categorized into String Manipulation, Date Manipulation, Numeric Functions and Aggregate Functions.</p></li>
-<li><p>String Manipulation Functions</p></li>
+<li><p>String Manipulation Functions</p>
+<ul>
 <li><p>Concatenating Strings - <code class="docutils literal notranslate"><span class="pre">concat</span></code></p></li>
 <li><p>Getting Length - <code class="docutils literal notranslate"><span class="pre">length</span></code></p></li>
 <li><p>Trimming Strings - <code class="docutils literal notranslate"><span class="pre">trim</span></code>,<code class="docutils literal notranslate"> <span class="pre">rtrim</span></code>, <code class="docutils literal notranslate"><span class="pre">ltrim</span></code></p></li>
 <li><p>Padding Strings - <code class="docutils literal notranslate"><span class="pre">lpad</span></code>, <code class="docutils literal notranslate"><span class="pre">rpad</span></code></p></li>
 <li><p>Extracting Strings - <code class="docutils literal notranslate"><span class="pre">split</span></code>, <code class="docutils literal notranslate"><span class="pre">substring</span></code></p></li>
-<li><p>Date Manipulation Functions</p></li>
+</ul>
+</li>
+<li><p>Date Manipulation Functions</p>
+<ul>
 <li><p>Date Arithmetic - <code class="docutils literal notranslate"><span class="pre">date_add</span></code>, <code class="docutils literal notranslate"><span class="pre">date_sub</span></code>, <code class="docutils literal notranslate"><span class="pre">datediff</span></code>, <code class="docutils literal notranslate"><span class="pre">add_months</span></code></p></li>
 <li><p>Date Extraction - <code class="docutils literal notranslate"><span class="pre">dayofmonth</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code></p></li>
 <li><p>Get beginning period - <code class="docutils literal notranslate"><span class="pre">trunc</span></code>, <code class="docutils literal notranslate"><span class="pre">date_trunc</span></code></p></li>
+</ul>
+</li>
 <li><p>Numeric Functions - <code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">greatest</span></code></p></li>
 <li><p>Aggregate Functions - <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code></p></li>
 </ul>
@@ -887,16 +897,22 @@
 <p>Let us understand how we can write Data Frames to different file formats.</p>
 <ul class="simple">
 <li><p>All the batch write APIs are grouped under write which is exposed to Data Frame objects.</p></li>
-<li><p>All APIs are exposed under spark.read</p></li>
+<li><p>All APIs are exposed under spark.read</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">text</span></code> - to write single column data to text files.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">csv</span></code> - to write to text files with delimiters. Default is a comma, but we can use other delimiters as well.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">json</span></code> - to write data to JSON files</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">orc</span></code> - to write data to ORC files</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">parquet</span></code> - to write data to Parquet files.</p></li>
+</ul>
+</li>
 <li><p>We can also write data to other file formats by plugging in and by using <code class="docutils literal notranslate"><span class="pre">write.format</span></code>, for example <strong>avro</strong></p></li>
-<li><p>We can use options based on the type using which we are writing the Data Frame to.</p></li>
+<li><p>We can use options based on the type using which we are writing the Data Frame to.</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">compression</span></code> - Compression codec (<code class="docutils literal notranslate"><span class="pre">gzip</span></code>, <code class="docutils literal notranslate"><span class="pre">snappy</span></code> etc)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sep</span></code> - to specify delimiters while writing into text files using <strong>csv</strong></p></li>
+</ul>
+</li>
 <li><p>We can <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> the directories or <code class="docutils literal notranslate"><span class="pre">append</span></code> to existing directories using <code class="docutils literal notranslate"><span class="pre">mode</span></code></p></li>
 <li><p>Create copy of orders data in <strong>parquet</strong> file format with no compression. If the folder already exists overwrite it. Target Location: <strong>/user/[YOUR_USER_NAME]/retail_db/orders</strong></p></li>
 <li><p>When you pass options, if there are typos then options will be ignored rather than failing. Be careful and make sure that output is validated.</p></li>
@@ -1010,13 +1026,16 @@
 <li><p>We have ~1920 files of ~64MB Size.</p></li>
 <li><p>Data is in the range of 1987 October and 2008 December (255 months)</p></li>
 <li><p>By default it uses ~1920 threads to process the data and it might end up with too many small files. We can avoid that by using repartition and then partition by the month.</p></li>
-<li><p>Here are the steps we are going to follow to partition by flight month and save the data to /user/[YOUR_USER_NAME]/airlines.</p></li>
+<li><p>Here are the steps we are going to follow to partition by flight month and save the data to /user/[YOUR_USER_NAME]/airlines.</p>
+<ul>
 <li><p>Read one file first and get the schema.</p></li>
 <li><p>Read the entire data by applying the schema from the previous step.</p></li>
 <li><p>Add additional column flightmonth using withColumn by using lpad on month column and concat functions. We need to do this as the month in our data set is of type integer and we want to pad with 0 for months till september to format it into YYYYMM.</p></li>
 <li><p>Repartition the data into 255 based on the number of months using flightmonth</p></li>
 <li><p>Partition the data by partitionBy while writing the data to the target location.</p></li>
 <li><p>We will use parquet file format which will automatically compresses data using Snappy algorithm.</p></li>
+</ul>
+</li>
 </ul>
 <p><strong>This process will take time, once it is done we will review the target location to which data is copied by partitioning using month</strong></p>
 <div class="cell docutils container">
@@ -1141,15 +1160,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>airlines_path = /public/airlines_all/airlines-part/flightmonth=200801
-airlines = [Year: int, Month: int ... 29 more fields]
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Year: int, Month: int ... 29 more fields]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1157,51 +1167,10 @@ airlines = [Year: int, Month: int ... 29 more fields]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>605659
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">airlines</span><span class="o">.</span><span class="n">printSchema</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>root
- |-- Year: integer (nullable = true)
- |-- Month: integer (nullable = true)
- |-- DayofMonth: integer (nullable = true)
- |-- DayOfWeek: integer (nullable = true)
- |-- DepTime: string (nullable = true)
- |-- CRSDepTime: integer (nullable = true)
- |-- ArrTime: string (nullable = true)
- |-- CRSArrTime: integer (nullable = true)
- |-- UniqueCarrier: string (nullable = true)
- |-- FlightNum: integer (nullable = true)
- |-- TailNum: string (nullable = true)
- |-- ActualElapsedTime: string (nullable = true)
- |-- CRSElapsedTime: integer (nullable = true)
- |-- AirTime: string (nullable = true)
- |-- ArrDelay: string (nullable = true)
- |-- DepDelay: string (nullable = true)
- |-- Origin: string (nullable = true)
- |-- Dest: string (nullable = true)
- |-- Distance: string (nullable = true)
- |-- TaxiIn: string (nullable = true)
- |-- TaxiOut: string (nullable = true)
- |-- Cancelled: integer (nullable = true)
- |-- CancellationCode: string (nullable = true)
- |-- Diverted: integer (nullable = true)
- |-- CarrierDelay: string (nullable = true)
- |-- WeatherDelay: string (nullable = true)
- |-- NASDelay: string (nullable = true)
- |-- SecurityDelay: string (nullable = true)
- |-- LateAircraftDelay: string (nullable = true)
- |-- IsArrDelayed: string (nullable = true)
- |-- IsDepDelayed: string (nullable = true)
 </pre></div>
 </div>
 </div>
@@ -1237,11 +1206,6 @@ airlines = [Year: int, Month: int ... 29 more fields]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>286
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>Get number of unique destinations</p></li>
@@ -1255,11 +1219,6 @@ airlines = [Year: int, Month: int ... 29 more fields]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>287
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>Get all unique carriers</p></li>
@@ -1270,34 +1229,6 @@ airlines = [Year: int, Month: int ... 29 more fields]
     <span class="n">select</span><span class="o">(</span><span class="s">&quot;UniqueCarrier&quot;</span><span class="o">).</span>
     <span class="n">distinct</span><span class="o">.</span>
     <span class="n">show</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------------+
-|UniqueCarrier|
-+-------------+
-|           UA|
-|           AA|
-|           NW|
-|           EV|
-|           B6|
-|           DL|
-|           OO|
-|           F9|
-|           YV|
-|           US|
-|           AQ|
-|           MQ|
-|           OH|
-|           HA|
-|           XE|
-|           AS|
-|           FL|
-|           CO|
-|           WN|
-|           9E|
-+-------------+
 </pre></div>
 </div>
 </div>

@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -428,18 +428,27 @@
 <h2><span class="section-number">5.1. </span>Overview of Basic Transformations<a class="headerlink" href="#overview-of-basic-transformations" title="Permalink to this headline">¶</a></h2>
 <p>Let us define problem statements to learn more about Data Frame APIs. We will try to cover filtering, aggregations and sorting as part of solutions for these problem statements.</p>
 <ul class="simple">
-<li><p>Get total number of flights as well as number of flights which are delayed in departure and number of flights delayed in arrival.</p></li>
+<li><p>Get total number of flights as well as number of flights which are delayed in departure and number of flights delayed in arrival.</p>
+<ul>
 <li><p>Output should contain 3 columns - <strong>FlightCount</strong>, <strong>DepDelayedCount</strong>, <strong>ArrDelayedCount</strong></p></li>
-<li><p>Get number of flights which are delayed in departure and number of flights delayed in arrival for each day along with number of flights departed for each day.</p></li>
+</ul>
+</li>
+<li><p>Get number of flights which are delayed in departure and number of flights delayed in arrival for each day along with number of flights departed for each day.</p>
+<ul>
 <li><p>Output should contain 4 columns - <strong>FlightDate</strong>, <strong>FlightCount</strong>, <strong>DepDelayedCount</strong>, <strong>ArrDelayedCount</strong></p></li>
 <li><p><strong>FlightDate</strong> should be of <strong>YYYY-MM-dd</strong> format.</p></li>
 <li><p>Data should be <strong>sorted</strong> in ascending order by <strong>flightDate</strong></p></li>
-<li><p>Get all the flights which are departed late but arrived early (<strong>IsArrDelayed is NO</strong>).</p></li>
+</ul>
+</li>
+<li><p>Get all the flights which are departed late but arrived early (<strong>IsArrDelayed is NO</strong>).</p>
+<ul>
 <li><p>Output should contain - <strong>FlightCRSDepTime</strong>, <strong>UniqueCarrier</strong>, <strong>FlightNum</strong>, <strong>Origin</strong>, <strong>Dest</strong>, <strong>DepDelay</strong>, <strong>ArrDelay</strong></p></li>
 <li><p><strong>FlightCRSDepTime</strong> need to be computed using <strong>Year</strong>, <strong>Month</strong>, <strong>DayOfMonth</strong>, <strong>CRSDepTime</strong></p></li>
 <li><p><strong>FlightCRSDepTime</strong> should be displayed using <strong>YYYY-MM-dd HH:mm</strong> format.</p></li>
 <li><p>Output should be sorted by <strong>FlightCRSDepTime</strong> and then by the difference between <strong>DepDelay</strong> and <strong>ArrDelay</strong></p></li>
 <li><p>Also get the count of such flights</p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="starting-spark-context">
@@ -867,14 +876,20 @@
 <p>Let us go through the details related to aggregation using Spark.</p>
 <ul class="simple">
 <li><p>We can perform total aggregations directly on Dataframe or we can perform aggregations after grouping by a key(s).</p></li>
-<li><p>Here are the APIs which we typically use to group the data using a key.</p></li>
+<li><p>Here are the APIs which we typically use to group the data using a key.</p>
+<ul>
 <li><p>groupBy</p></li>
 <li><p>rollup</p></li>
 <li><p>cube</p></li>
-<li><p>Here are the functions which we typically use to perform aggregations.</p></li>
+</ul>
+</li>
+<li><p>Here are the functions which we typically use to perform aggregations.</p>
+<ul>
 <li><p>count</p></li>
 <li><p>sum, avg</p></li>
 <li><p>min, max</p></li>
+</ul>
+</li>
 <li><p>If we want to provide aliases to the aggregated fields then we have to use <code class="docutils literal notranslate"><span class="pre">agg</span></code> after <code class="docutils literal notranslate"><span class="pre">groupBy</span></code>.</p></li>
 <li><p>Let us get the count of flights for each day for the month of 200801.</p></li>
 </ul>
@@ -884,31 +899,12 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>airlines_path = /public/airlines_all/airlines-part/flightmonth=200801
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/public/airlines_all/airlines-part/flightmonth=200801
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">airlines</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span>
     <span class="n">read</span><span class="o">.</span>
     <span class="n">parquet</span><span class="o">(</span><span class="n">airlines_path</span><span class="o">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waiting for a Spark session to start...
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>airlines = [Year: int, Month: int ... 29 more fields]
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Year: int, Month: int ... 29 more fields]
 </pre></div>
 </div>
 </div>
@@ -926,16 +922,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: Compile Error
-Message: &lt;console&gt;:29: error: stable identifier required, but this.$line7$read.spark.implicits found.
-       import spark.implicits._
-                    ^
-
-StackTrace: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -947,35 +933,6 @@ StackTrace:
            <span class="o">).</span>
     <span class="n">agg</span><span class="o">(</span><span class="n">count</span><span class="o">(</span><span class="n">lit</span><span class="o">(</span><span class="mi">1</span><span class="o">)).</span><span class="n">alias</span><span class="o">(</span><span class="s">&quot;FlightCount&quot;</span><span class="o">)).</span>
     <span class="n">show</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+----------+-----------+
-|FlightDate|FlightCount|
-+----------+-----------+
-|  20080120|      18653|
-|  20080130|      19766|
-|  20080115|      19503|
-|  20080118|      20347|
-|  20080122|      19504|
-|  20080104|      20929|
-|  20080125|      20313|
-|  20080102|      20953|
-|  20080105|      18066|
-|  20080111|      20349|
-|  20080109|      19820|
-|  20080127|      18903|
-|  20080101|      19175|
-|  20080128|      20147|
-|  20080119|      16249|
-|  20080106|      19893|
-|  20080123|      19769|
-|  20080117|      20273|
-|  20080116|      19764|
-|  20080112|      16572|
-+----------+-----------+
-only showing top 20 rows
 </pre></div>
 </div>
 </div>

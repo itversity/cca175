@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -439,14 +439,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spark = org.apache.spark.sql.SparkSession@509c6d77
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>org.apache.spark.sql.SparkSession@509c6d77
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -466,11 +458,14 @@
 <li><p>Let us say <code class="docutils literal notranslate"><span class="pre">spark</span></code> is of type <code class="docutils literal notranslate"><span class="pre">SparkSession</span></code>. There is an attribute as part of <code class="docutils literal notranslate"><span class="pre">spark</span></code> called as catalog and it is of type pyspark.sql.catalog.Catalog.</p></li>
 <li><p>We can access catalog using <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code>.</p></li>
 <li><p>There are several methods that is part of <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code>. We will explore them in the later topics.</p></li>
-<li><p>Following are some of the tasks that can be performed using <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code> object.</p></li>
+<li><p>Following are some of the tasks that can be performed using <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code> object.</p>
+<ul>
 <li><p>Check current database and switch to different databases.</p></li>
 <li><p>Create permanent table in metastore.</p></li>
 <li><p>Create or drop temporary views.</p></li>
 <li><p>Register functions.</p></li>
+</ul>
+</li>
 <li><p>All the above tasks can be performed using SQL style commands passed to <code class="docutils literal notranslate"><span class="pre">spark.sql</span></code>.</p></li>
 </ul>
 </div>
@@ -483,22 +478,20 @@
 <li><p>Databases can be created using <code class="docutils literal notranslate"><span class="pre">spark.sql(&quot;CREATE</span> <span class="pre">DATABASE</span> <span class="pre">database_name&quot;)</span></code>. We can list Databases using <code class="docutils literal notranslate"><span class="pre">spark.sql</span></code> or <code class="docutils literal notranslate"><span class="pre">spark.catalog.listDatabases()</span></code></p></li>
 <li><p>We can use modes such as <code class="docutils literal notranslate"><span class="pre">append</span></code>, <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> and <code class="docutils literal notranslate"><span class="pre">error</span></code> with <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code>. Default is error.</p></li>
 <li><p>We can use modes such as <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> with <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>. Default is append.</p></li>
-<li><p>When we use <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code>, following happens:</p></li>
+<li><p>When we use <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code>, following happens:</p>
+<ul>
 <li><p>Check for table if the table already exists. By default <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code> will throw exception.</p></li>
 <li><p>If the table does not exists the table will be created.</p></li>
 <li><p>Data from Data Frame will be copied into the table.</p></li>
 <li><p>We can alter the behavior by using mode. We can overwrite the existing table or we can append into it.</p></li>
+</ul>
+</li>
 <li><p>We can list the tables using <code class="docutils literal notranslate"><span class="pre">spark.catalog.listTables</span></code> after switching to appropriate database using <code class="docutils literal notranslate"><span class="pre">spark.catalog.setCurrentDatabase</span></code>.</p></li>
 <li><p>We can also switch the database and list tables using <code class="docutils literal notranslate"><span class="pre">spark.sql</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">catalog</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>org.apache.spark.sql.internal.CatalogImpl@f9fa230
 </pre></div>
 </div>
 </div>
@@ -515,26 +508,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>username = training
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>training
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">s&quot;CREATE DATABASE </span><span class="si">${</span><span class="n">username</span><span class="si">}</span><span class="s">_db&quot;</span><span class="o">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lastException: Throwable = null
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
 </div>
@@ -555,135 +532,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: org.apache.spark.sql.AnalysisException
-Message: org.apache.hadoop.hive.ql.metadata.HiveException: MetaException(message:java.security.AccessControlException: Permission denied: user=training, access=READ, inode=&quot;/user/masonkhan&quot;:masonkhan:hdfs:drwx------
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:353)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:252)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1950)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1934)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPathAccess(FSDirectory.java:1908)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkAccess(FSNamesystem.java:8800)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.checkAccess(NameNodeRpcServer.java:2089)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.checkAccess(ClientNamenodeProtocolServerSideTranslatorPB.java:1466)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2351)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2347)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1869)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2347)
-);
-StackTrace: 	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:353)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:252)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1950)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1934)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPathAccess(FSDirectory.java:1908)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkAccess(FSNamesystem.java:8800)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.checkAccess(NameNodeRpcServer.java:2089)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.checkAccess(ClientNamenodeProtocolServerSideTranslatorPB.java:1466)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2351)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2347)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1869)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2347)
-);
-  at org.apache.spark.sql.hive.HiveExternalCatalog.withClient(HiveExternalCatalog.scala:106)
-  at org.apache.spark.sql.hive.HiveExternalCatalog.databaseExists(HiveExternalCatalog.scala:194)
-  at org.apache.spark.sql.catalyst.catalog.SessionCatalog.databaseExists(SessionCatalog.scala:237)
-  at org.apache.spark.sql.catalyst.catalog.SessionCatalog.org$apache$spark$sql$catalyst$catalog$SessionCatalog$$requireDbExists(SessionCatalog.scala:176)
-  at org.apache.spark.sql.catalyst.catalog.SessionCatalog.getDatabaseMetadata(SessionCatalog.scala:231)
-  at org.apache.spark.sql.internal.CatalogImpl.org$apache$spark$sql$internal$CatalogImpl$$makeDatabase(CatalogImpl.scala:78)
-  at org.apache.spark.sql.internal.CatalogImpl$$anonfun$1.apply(CatalogImpl.scala:73)
-  at org.apache.spark.sql.internal.CatalogImpl$$anonfun$1.apply(CatalogImpl.scala:73)
-  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)
-  at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)
-  at scala.collection.Iterator$class.foreach(Iterator.scala:893)
-  at scala.collection.AbstractIterator.foreach(Iterator.scala:1336)
-  at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
-  at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
-  at scala.collection.TraversableLike$class.map(TraversableLike.scala:234)
-  at scala.collection.AbstractTraversable.map(Traversable.scala:104)
-  at org.apache.spark.sql.internal.CatalogImpl.listDatabases(CatalogImpl.scala:73)
-  ... 42 elided
-Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: MetaException(message:java.security.AccessControlException: Permission denied: user=training, access=READ, inode=&quot;/user/masonkhan&quot;:masonkhan:hdfs:drwx------
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:353)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:252)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1950)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1934)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPathAccess(FSDirectory.java:1908)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkAccess(FSNamesystem.java:8800)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.checkAccess(NameNodeRpcServer.java:2089)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.checkAccess(ClientNamenodeProtocolServerSideTranslatorPB.java:1466)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2351)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2347)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1869)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2347)
-)
-  at org.apache.hadoop.hive.ql.metadata.Hive.getDatabase(Hive.java:1305)
-  at org.apache.hadoop.hive.ql.metadata.Hive.databaseExists(Hive.java:1290)
-  at org.apache.spark.sql.hive.client.HiveClientImpl$$anonfun$databaseExists$1.apply$mcZ$sp(HiveClientImpl.scala:342)
-  at org.apache.spark.sql.hive.client.HiveClientImpl$$anonfun$databaseExists$1.apply(HiveClientImpl.scala:342)
-  at org.apache.spark.sql.hive.client.HiveClientImpl$$anonfun$databaseExists$1.apply(HiveClientImpl.scala:342)
-  at org.apache.spark.sql.hive.client.HiveClientImpl$$anonfun$withHiveState$1.apply(HiveClientImpl.scala:274)
-  at org.apache.spark.sql.hive.client.HiveClientImpl.liftedTree1$1(HiveClientImpl.scala:212)
-  at org.apache.spark.sql.hive.client.HiveClientImpl.retryLocked(HiveClientImpl.scala:211)
-  at org.apache.spark.sql.hive.client.HiveClientImpl.withHiveState(HiveClientImpl.scala:257)
-  at org.apache.spark.sql.hive.client.HiveClientImpl.databaseExists(HiveClientImpl.scala:341)
-  at org.apache.spark.sql.hive.HiveExternalCatalog$$anonfun$databaseExists$1.apply$mcZ$sp(HiveExternalCatalog.scala:195)
-  at org.apache.spark.sql.hive.HiveExternalCatalog$$anonfun$databaseExists$1.apply(HiveExternalCatalog.scala:195)
-  at org.apache.spark.sql.hive.HiveExternalCatalog$$anonfun$databaseExists$1.apply(HiveExternalCatalog.scala:195)
-  at org.apache.spark.sql.hive.HiveExternalCatalog.withClient(HiveExternalCatalog.scala:97)
-  ... 58 more
-Caused by: org.apache.hadoop.hive.metastore.api.MetaException: java.security.AccessControlException: Permission denied: user=training, access=READ, inode=&quot;/user/masonkhan&quot;:masonkhan:hdfs:drwx------
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.check(FSPermissionChecker.java:353)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:252)
-	at org.apache.hadoop.hdfs.server.namenode.FSPermissionChecker.checkPermission(FSPermissionChecker.java:190)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1950)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPermission(FSDirectory.java:1934)
-	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.checkPathAccess(FSDirectory.java:1908)
-	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkAccess(FSNamesystem.java:8800)
-	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.checkAccess(NameNodeRpcServer.java:2089)
-	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.checkAccess(ClientNamenodeProtocolServerSideTranslatorPB.java:1466)
-	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2351)
-	at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2347)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1869)
-	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2347)
-  at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$get_database_result$get_database_resultStandardScheme.read(ThriftHiveMetastore.java:15345)
-  at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$get_database_result$get_database_resultStandardScheme.read(ThriftHiveMetastore.java:15313)
-  at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$get_database_result.read(ThriftHiveMetastore.java:15244)
-  at org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:86)
-  at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$Client.recv_get_database(ThriftHiveMetastore.java:654)
-  at org.apache.hadoop.hive.metastore.api.ThriftHiveMetastore$Client.get_database(ThriftHiveMetastore.java:641)
-  at org.apache.hadoop.hive.metastore.HiveMetaStoreClient.getDatabase(HiveMetaStoreClient.java:1158)
-  at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)
-  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  at java.lang.reflect.Method.invoke(Method.java:498)
-  at org.apache.hadoop.hive.metastore.RetryingMetaStoreClient.invoke(RetryingMetaStoreClient.java:156)
-  at com.sun.proxy.$Proxy33.getDatabase(Unknown Source)
-  at org.apache.hadoop.hive.ql.metadata.Hive.getDatabase(Hive.java:1301)
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>Create a Data Frame which contain one column by name <strong>dummy</strong> and one row with value <strong>X</strong>.</p></li>
@@ -692,23 +540,6 @@ Caused by: org.apache.hadoop.hive.metastore.api.MetaException: java.security.Acc
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nc">List</span><span class="o">(</span><span class="s">&quot;X&quot;</span><span class="o">)</span>
 <span class="k">val</span> <span class="n">df</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">toDF</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: Unknown Error
-Message: lastException: Throwable = null
-&lt;console&gt;:27: error: not found: value l
-       val df = l.toDF
-                ^
-&lt;console&gt;:29: error: not found: value l
-val $ires5 = l
-             ^
-&lt;console&gt;:26: error: not found: value l
-       l = List(&quot;X&quot;)
-       ^
-
-StackTrace: 
 </pre></div>
 </div>
 </div>
@@ -779,12 +610,15 @@ StackTrace:
 <h3><span class="section-number">8.5.1. </span>Tasks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Let us perform tasks to create empty table using <code class="docutils literal notranslate"><span class="pre">spark.catalog.createTable</span></code> or using <code class="docutils literal notranslate"><span class="pre">spark.catalog.createExternalTable</span></code>.</p>
 <ul class="simple">
-<li><p>Create database <strong>hr_db</strong> and table <strong>employees</strong> with following fields. Let us create Database first and then we will see how to create table.</p></li>
+<li><p>Create database <strong>hr_db</strong> and table <strong>employees</strong> with following fields. Let us create Database first and then we will see how to create table.</p>
+<ul>
 <li><p>employee_id of type Integer</p></li>
 <li><p>first_name of type String</p></li>
 <li><p>last_name of type String</p></li>
 <li><p>salary of type Float</p></li>
 <li><p>nationality of type String</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -860,10 +694,13 @@ StackTrace:
 </div>
 </div>
 <ul class="simple">
-<li><p>Create database by name <strong>{username}_airlines</strong> and create external table for <strong>airport-codes.txt</strong>.</p></li>
+<li><p>Create database by name <strong>{username}_airlines</strong> and create external table for <strong>airport-codes.txt</strong>.</p>
+<ul>
 <li><p>Data have header</p></li>
 <li><p>Fields in each record are delimited by a tab character.</p></li>
 <li><p>We can pass options such as sep, header, inferSchema etc to define the schema.</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,10 +791,13 @@ StackTrace:
 <p>Let us understand how we can insert data into existing tables using <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>.</p>
 <ul class="simple">
 <li><p>We can use modes such as <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> with <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p></li>
-<li><p>When we use <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>, following happens:</p></li>
+<li><p>When we use <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>, following happens:</p>
+<ul>
 <li><p>If the table does not exist, <code class="docutils literal notranslate"><span class="pre">insertInto</span></code> will throw an exception.</p></li>
 <li><p>If the table exists, by default data will be appended.</p></li>
 <li><p>We can alter the behavior by using keyword argument overwrite. It is by default False, we can pass True to replace existing data.</p></li>
+</ul>
+</li>
 </ul>
 <div class="section" id="id2">
 <h3><span class="section-number">8.6.1. </span>Tasks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
@@ -1054,11 +894,6 @@ StackTrace:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame[]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1080,11 +915,6 @@ StackTrace:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">f&quot;DROP TABLE {username}_airlines.airport_codes&quot;</span><span class="o">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame[]
 </pre></div>
 </div>
 </div>
@@ -1125,35 +955,6 @@ StackTrace:
     <span class="n">groupBy</span><span class="o">(</span><span class="s">&quot;state&quot;</span><span class="o">).</span>
     <span class="n">count</span><span class="o">().</span>
     <span class="n">show</span><span class="o">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-----+-----+
-|state|count|
-+-----+-----+
-|   BC|   22|
-|   SD|    7|
-|   NY|   18|
-|   NM|    9|
-|   NE|    9|
-|   MI|   18|
-|  NWT|    4|
-|   NC|   10|
-|   NJ|    3|
-|   MD|    3|
-|   WV|    8|
-|   MN|    8|
-|   IL|   12|
-|   ID|    6|
-|   IA|    8|
-|   MO|    8|
-|   SC|    6|
-|   VA|    7|
-|  PEI|    1|
-|   TN|    6|
-+-----+-----+
-only showing top 20 rows
 </pre></div>
 </div>
 </div>
@@ -1236,35 +1037,6 @@ only showing top 20 rows
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-----+-----+
-|state|count|
-+-----+-----+
-|   BC|   22|
-|   SD|    7|
-|   NY|   18|
-|   NM|    9|
-|   NE|    9|
-|   MI|   18|
-|  NWT|    4|
-|   NC|   10|
-|   NJ|    3|
-|   MD|    3|
-|   WV|    8|
-|   MN|    8|
-|   IL|   12|
-|   ID|    6|
-|   IA|    8|
-|   MO|    8|
-|   SC|    6|
-|   VA|    7|
-|  PEI|    1|
-|   TN|    6|
-+-----+-----+
-only showing top 20 rows
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>List the tables in the metastore and views.</p></li>
@@ -1307,11 +1079,14 @@ only showing top 20 rows
 </div>
 </div>
 <ul class="simple">
-<li><p>Here are some of the transformations which can be performed.</p></li>
+<li><p>Here are some of the transformations which can be performed.</p>
+<ul>
 <li><p>Row Level Transformations using functions in SELECT clause.</p></li>
 <li><p>Filtering using WHERE clause</p></li>
 <li><p>Aggregations using GROUP BY and aggregate functions.</p></li>
 <li><p>Sorting using ORDER BY or SORT BY</p></li>
+</ul>
+</li>
 </ul>
 <div class="section" id="id5">
 <h3><span class="section-number">8.9.1. </span>Tasks<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
@@ -1322,12 +1097,6 @@ only showing top 20 rows
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">catalog</span><span class="o">.</span><span class="n">listTables</span><span class="o">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Table(name=&quot;airport_codes&quot;, database=&quot;training_airlines&quot;, description=None, tableType=&quot;MANAGED&quot;, isTemporary=False),
- Table(name=&quot;airport_codes_v&quot;, database=None, description=None, tableType=&quot;TEMPORARY&quot;, isTemporary=True)]
 </pre></div>
 </div>
 </div>
@@ -1347,29 +1116,6 @@ only showing top 20 rows
 <span class="s">           ORDER BY airport_cnt DESC</span>
 <span class="s">        &quot;&quot;&quot;</span><span class="o">).</span>
   <span class="n">show</span><span class="o">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-----+-----------+
-|state|airport_cnt|
-+-----+-----------+
-|   CA|         29|
-|   TX|         26|
-|   AK|         25|
-|   BC|         22|
-|   NY|         18|
-|   ON|         18|
-|   MI|         18|
-|   FL|         18|
-|   MT|         14|
-|   PQ|         13|
-|   PA|         13|
-|   CO|         12|
-|   IL|         12|
-|   NC|         10|
-|   WY|         10|
-+-----+-----------+
 </pre></div>
 </div>
 </div>

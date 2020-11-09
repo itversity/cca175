@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -426,12 +426,15 @@
 <li><p>We can list the files using ls command - e. g.: <code class="docutils literal notranslate"> <span class="pre">(%fs</span> <span class="pre">ls)</span></code></p></li>
 <li><p>Databricks provides lot of datasets for free under databricks-datasets</p></li>
 <li><p>If the cluster is integrated with AWS or Azure Blob we can access files by specifying the appropriate protocol (e.g.: s3:// for s3)</p></li>
-<li><p>List of commands available under %fs</p></li>
+<li><p>List of commands available under %fs</p>
+<ul>
 <li><p>Copying files or directories <code class="docutils literal notranslate"><span class="pre">-cp</span></code></p></li>
 <li><p>Moving files or directories <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">mv</span> </code></p></li>
 <li><p>Creating directories <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">mkdirs</span></code></p></li>
 <li><p>Deleting files and directories <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">rm</span></code></p></li>
 <li><p>We can copy or delete directories recursively using <code class="docutils literal notranslate"> <span class="pre">-r</span></code> or <code class="docutils literal notranslate"><span class="pre">--recursive</span></code></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="getting-file-metadata">
@@ -445,9 +448,8 @@
 <li><p>When Spark Cluster is started, it will create 2 objects - spark and sc</p></li>
 <li><p>sc is of type SparkContext and spark is of type SparkSession</p></li>
 <li><p>Spark uses HDFS APIs to interact with the file system and we can access HDFS APIs using sc._jsc and sc._jvm to get file metadata.</p></li>
-</ul>
-<p>Here are the steps to get the file metadata.</p>
-<ul class="simple">
+<li><p>Here are the steps to get the file metadata.</p>
+<ul>
 <li><p>Get Hadoop Configuration using <code class="docutils literal notranslate"> <span class="pre">sc._jsc.hadoopConfiguration()</span></code> - let”s say <code class="docutils literal notranslate"><span class="pre">conf</span></code></p></li>
 <li><p>We can pass conf to <code class="docutils literal notranslate"> <span class="pre">sc._jvm.org.apache.hadoop.fs.FileSystem.</span></code> get to get FileSystem object - let”s say <code class="docutils literal notranslate"><span class="pre">fs</span></code></p></li>
 <li><p>We can build <code class="docutils literal notranslate"> <span class="pre">path</span></code>  object by passing the path as string to <code class="docutils literal notranslate"><span class="pre">sc._jvm.org.apache.hadoop.fs.Path</span></code></p></li>
@@ -456,6 +458,8 @@
 <li><p>We can use <code class="docutils literal notranslate"><span class="pre">len</span></code> on files to get number of files.</p></li>
 <li><p>We can use <code class="docutils literal notranslate"><span class="pre">getLen</span></code> on each <code class="docutils literal notranslate"><span class="pre">FileStatus</span></code> object to get the size of each file.</p></li>
 <li><p>Cumulative size of all files can be achieved using <code class="docutils literal notranslate"><span class="pre">sum(map(lambda</span> <span class="pre">file:</span> <span class="pre">file.getLen(),</span> <span class="pre">files))</span></code></p></li>
+</ul>
+</li>
 <li><p>Let us first get list of files</p></li>
 </ul>
 <div class="cell docutils container">
