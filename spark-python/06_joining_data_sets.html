@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -611,16 +611,22 @@ hdfs dfs -ls /public/airlines_all/airport-codes
 <h2><span class="section-number">6.4. </span>Overview of Joins<a class="headerlink" href="#overview-of-joins" title="Permalink to this headline">¶</a></h2>
 <p>Let us get an overview of joining Data Frames.</p>
 <ul class="simple">
-<li><p>Our data cannot be stored in one table. It will be stored in multiple tables and the tables might be related.</p></li>
+<li><p>Our data cannot be stored in one table. It will be stored in multiple tables and the tables might be related.</p>
+<ul>
 <li><p>When it comes to transactional systems, we typically define tables based on Normalization Principles.</p></li>
 <li><p>When it comes to data warehousing applications, we typically define tables using Dimensional Modeling.</p></li>
 <li><p>Either of the approach data is scattered into multiple tables and relationships are defined.</p></li>
 <li><p>Typically tables are related with one to one, one to many, many to many relationships.</p></li>
+</ul>
+</li>
 <li><p>When we have 2 Data Sets that are related based on a common key we typically perform join.</p></li>
-<li><p>There are different types of joins.</p></li>
+<li><p>There are different types of joins.</p>
+<ul>
 <li><p>INNER JOIN</p></li>
 <li><p>OUTER JOIN (LEFT or RIGHT)</p></li>
 <li><p>FULL OUTER JOIN (a LEFT OUTER JOIN b UNION a RIGHT OUTER JOIN b)</p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="solutions-problem-1">

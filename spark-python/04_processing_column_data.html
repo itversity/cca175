@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -491,11 +491,14 @@
 <h2><span class="section-number">4.1. </span>Introduction to Pre-defined Functions<a class="headerlink" href="#introduction-to-pre-defined-functions" title="Permalink to this headline">¶</a></h2>
 <p>We typically process data in the columns using functions in <code class="docutils literal notranslate"><span class="pre">org.apache.spark.sql.functions</span></code>. Let us understand details about these functions in detail as part of this module.</p>
 <ul class="simple">
-<li><p>Let us recap about Functions or APIs to process Data Frames.</p></li>
+<li><p>Let us recap about Functions or APIs to process Data Frames.</p>
+<ul>
 <li><p>Projection - <code class="docutils literal notranslate"><span class="pre">select</span></code> or <code class="docutils literal notranslate"><span class="pre">withColumn</span></code></p></li>
 <li><p>Filtering - <code class="docutils literal notranslate"><span class="pre">filter</span></code> or <code class="docutils literal notranslate"><span class="pre">where</span></code></p></li>
 <li><p>Grouping data by key and perform aggregations - <code class="docutils literal notranslate"><span class="pre">groupBy</span></code></p></li>
 <li><p>Sorting data - <code class="docutils literal notranslate"><span class="pre">sort</span></code> or <code class="docutils literal notranslate"><span class="pre">orderBy</span></code></p></li>
+</ul>
+</li>
 <li><p>We can pass column names or literals or expressions to all the Data Frame APIs.</p></li>
 <li><p>Expressions include arithmetic operations, transformations using functions from <code class="docutils literal notranslate"><span class="pre">org.apache.spark.sql.functions</span></code>.</p></li>
 <li><p>There are approximately 300 functions under <code class="docutils literal notranslate"><span class="pre">org.apache.spark.sql.functions</span></code>.</p></li>
@@ -654,23 +657,32 @@
 <h2><span class="section-number">4.4. </span>Categories of Functions<a class="headerlink" href="#categories-of-functions" title="Permalink to this headline">¶</a></h2>
 <p>There are approximately 300 functions under <code class="docutils literal notranslate"><span class="pre">org.apache.spark.sql.functions</span></code>. At a higher level they can be grouped into a few categories.</p>
 <ul class="simple">
-<li><p>String Manipulation Functions</p></li>
+<li><p>String Manipulation Functions</p>
+<ul>
 <li><p>Case Conversion - <code class="docutils literal notranslate"><span class="pre">lower</span></code>,  <code class="docutils literal notranslate"><span class="pre">upper</span></code></p></li>
 <li><p>Getting Length -  <code class="docutils literal notranslate"><span class="pre">length</span></code></p></li>
 <li><p>Extracting substrings - <code class="docutils literal notranslate"><span class="pre">substring</span></code>, <code class="docutils literal notranslate"><span class="pre">split</span></code></p></li>
 <li><p>Trimming - <code class="docutils literal notranslate"><span class="pre">trim</span></code>, <code class="docutils literal notranslate"><span class="pre">ltrim</span></code>, <code class="docutils literal notranslate"><span class="pre">rtrim</span></code></p></li>
 <li><p>Padding - <code class="docutils literal notranslate"><span class="pre">lpad</span></code>, <code class="docutils literal notranslate"><span class="pre">rpad</span></code></p></li>
 <li><p>Concatenating string - <code class="docutils literal notranslate"><span class="pre">concat</span></code></p></li>
-<li><p>Date Manipulation Functions</p></li>
+</ul>
+</li>
+<li><p>Date Manipulation Functions</p>
+<ul>
 <li><p>Getting current date and time - <code class="docutils literal notranslate"><span class="pre">current_date</span></code>, <code class="docutils literal notranslate"><span class="pre">current_timestamp</span></code></p></li>
 <li><p>Date Arithmetic - <code class="docutils literal notranslate"><span class="pre">date_add</span></code>, <code class="docutils literal notranslate"><span class="pre">date_sub</span></code>, <code class="docutils literal notranslate"><span class="pre">datediff</span></code>, <code class="docutils literal notranslate"><span class="pre">months_between</span></code>, <code class="docutils literal notranslate"><span class="pre">add_months</span></code>, <code class="docutils literal notranslate"><span class="pre">next_day</span></code></p></li>
 <li><p>Beginning and Ending Date or Time - <code class="docutils literal notranslate"><span class="pre">last_day</span></code>, <code class="docutils literal notranslate"><span class="pre">trunc</span></code>, <code class="docutils literal notranslate"><span class="pre">date_trunc</span></code></p></li>
 <li><p>Formatting Date - <code class="docutils literal notranslate"><span class="pre">date_format</span></code></p></li>
 <li><p>Extracting Information - <code class="docutils literal notranslate"><span class="pre">dayofyear</span></code>, <code class="docutils literal notranslate"><span class="pre">dayofmonth</span></code>, <code class="docutils literal notranslate"><span class="pre">dayofweek</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code></p></li>
-<li><p>Aggregate Functions</p></li>
+</ul>
+</li>
+<li><p>Aggregate Functions</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">countDistinct</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">avg</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code></p></li>
+</ul>
+</li>
 <li><p>Other Functions - We will explore depending on the use cases.</p></li>
 </ul>
 </div>
@@ -999,10 +1011,13 @@
 <p>Let us understand how we can extract substrings using function  <code class="docutils literal notranslate"><span class="pre">substring</span></code>.</p>
 <ul class="simple">
 <li><p>If we are processing <strong>fixed length columns</strong> then we use <code class="docutils literal notranslate"><span class="pre">substring</span></code> to extract the information.</p></li>
-<li><p>Here are some of the examples for <strong>fixed length columns</strong> and the use cases for which we typically extract information..</p></li>
+<li><p>Here are some of the examples for <strong>fixed length columns</strong> and the use cases for which we typically extract information..</p>
+<ul>
 <li><p>9 Digit Social Security Number. We typically extract last 4 digits and provide it to the tele verification applications..</p></li>
 <li><p>16 Digit Credit Card Number. We typically use first 4 digit number to identify Credit Card Provider and last 4 digits for the purpose of tele verification.</p></li>
 <li><p>Data coming from MainFrames systems are quite often fixed length. We might have to extract the information and store in multiple columns.</p></li>
+</ul>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">substring</span></code> function takes 3 arguments, <strong>column</strong>, <strong>position</strong>, <strong>length</strong>. We can also provide position from the end by passing negative value.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1069,12 +1084,15 @@
 <ul class="simple">
 <li><p>Create a list for employees with name, ssn and phone_number.</p></li>
 <li><p>SSN Format <strong>3 2 4</strong> - Fixed Length with 9 digits</p></li>
-<li><p>Phone Number Format - Country Code is variable and remaining phone number have 10 digits:</p></li>
+<li><p>Phone Number Format - Country Code is variable and remaining phone number have 10 digits:</p>
+<ul>
 <li><p>Country Code - one to 3 digits</p></li>
 <li><p>Area Code - 3 digits</p></li>
 <li><p>Phone Number Prefix - 3 digits</p></li>
 <li><p>Phone Number Remaining - 4 digits</p></li>
 <li><p>All the 4 parts are separated by spaces</p></li>
+</ul>
+</li>
 <li><p>Create a Dataframe with column names name, ssn and phone_number</p></li>
 <li><p>Extract last 4 digits from the phone number.</p></li>
 <li><p>Extract last 4 digits from SSN.</p></li>
@@ -1142,8 +1160,11 @@
 <p>Let us understand how we can extract substrings using  <code class="docutils literal notranslate"><span class="pre">split</span></code>.</p>
 <ul class="simple">
 <li><p>If we are processing <strong>variable length columns</strong> with <strong>delimiter</strong> then we use <code class="docutils literal notranslate"><span class="pre">split</span></code> to extract the information.</p></li>
-<li><p>Here are some of the examples for <strong>variable length columns</strong> and the use cases for which we typically extract information.</p></li>
+<li><p>Here are some of the examples for <strong>variable length columns</strong> and the use cases for which we typically extract information.</p>
+<ul>
 <li><p>Address where we store House Number, Street Name, City, State and Zip Code comma separated. We might want to extract City and State for demographics reports.</p></li>
+</ul>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">split</span></code> takes 2 arguments, <strong>column</strong> and <strong>delimiter</strong>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">split</span></code> convert each string into array and we can access the elements using index.</p></li>
 </ul>
@@ -1193,12 +1214,15 @@
 <ul class="simple">
 <li><p>Create a list for employees with name, ssn and phone_number.</p></li>
 <li><p>SSN Format <strong>3 2 4</strong> - Fixed Length with 9 digits</p></li>
-<li><p>Phone Number Format - Country Code is variable and remaining phone number have 10 digits:</p></li>
+<li><p>Phone Number Format - Country Code is variable and remaining phone number have 10 digits:</p>
+<ul>
 <li><p>Country Code - one to 3 digits</p></li>
 <li><p>Area Code - 3 digits</p></li>
 <li><p>Phone Number Prefix - 3 digits</p></li>
 <li><p>Phone Number Remaining - 4 digits</p></li>
 <li><p>All the 4 parts are separated by spaces</p></li>
+</ul>
+</li>
 <li><p>Create a Dataframe with column names name, ssn and phone_number</p></li>
 <li><p>Extract area code and last 4 digits from the phone number.</p></li>
 <li><p>Extract last 4 digits from SSN.</p></li>
@@ -1448,13 +1472,16 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Use <strong>pad</strong> functions to convert each of the field into fixed length and concatenate. Here are the details for each of the fields.</p></li>
+<li><p>Use <strong>pad</strong> functions to convert each of the field into fixed length and concatenate. Here are the details for each of the fields.</p>
+<ul>
 <li><p>Length of the employee_id should be 5 characters and should be padded with zero.</p></li>
 <li><p>Length of first_name and last_name should be 10 characters and should be padded with - on the right side.</p></li>
 <li><p>Length of salary should be 10 characters and should be padded with zero.</p></li>
-<li><p>Length of the nationality should be 15 characters and should be padded with - on the right side.</p></li>
+<li><p>Length of the nationality should be 15 characters and should be padded with - on    right side.</p></li>
 <li><p>Length of the phone_number should be 17 characters and should be padded with - on the right side.</p></li>
 <li><p>Length of the ssn can be left as is. It is 11 characters.</p></li>
+</ul>
+</li>
 <li><p>Create a new Dataframe <strong>empFixedDF</strong> with column name <strong>employee</strong>. Preview the data by disabling truncate.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1570,11 +1597,17 @@
 <h2><span class="section-number">4.12. </span>Date and Time - Overview<a class="headerlink" href="#date-and-time-overview" title="Permalink to this headline">¶</a></h2>
 <p>Let us get an overview about Date and Time using available functions.</p>
 <ul class="simple">
-<li><p>We can use <code class="docutils literal notranslate"><span class="pre">current_date</span></code> to get today’s server date.</p></li>
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">current_date</span></code> to get today’s server date.</p>
+<ul>
 <li><p>Date will be returned using <strong>yyyy-MM-dd</strong> format.</p></li>
-<li><p>We can use <code class="docutils literal notranslate"><span class="pre">current_timestamp</span></code> to get current server time.</p></li>
+</ul>
+</li>
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">current_timestamp</span></code> to get current server time.</p>
+<ul>
 <li><p>Timestamp will be returned using <strong>yyyy-MM-dd HH:mm:ss:SSS</strong> format.</p></li>
 <li><p>Hours will be by default in 24 hour format.</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1733,9 +1766,12 @@
 <ul class="simple">
 <li><p>We can use <code class="docutils literal notranslate"><span class="pre">trunc</span></code> or <code class="docutils literal notranslate"><span class="pre">date_trunc</span></code> for the same to get the beginning date of the week, month, current year etc by passing date or timestamp to it.</p></li>
 <li><p>We can use <code class="docutils literal notranslate"><span class="pre">trunc</span></code> to get beginning date of the month or year by passing date or timestamp to it - for example <code class="docutils literal notranslate"><span class="pre">trunc(current_date(),</span> <span class="pre">&quot;MM&quot;)</span></code> will give the first of the current month.</p></li>
-<li><p>We can use <code class="docutils literal notranslate"><span class="pre">date_trunc</span></code> to get beginning date of the month or year as well as beginning time of the day or hour by passing timestamp to it.</p></li>
+<li><p>We can use <code class="docutils literal notranslate"><span class="pre">date_trunc</span></code> to get beginning date of the month or year as well as beginning time of the day or hour by passing timestamp to it.</p>
+<ul>
 <li><p>Get beginning date based on month - <code class="docutils literal notranslate"><span class="pre">date_trunc(&quot;MM&quot;,</span> <span class="pre">current_timestamp())</span></code></p></li>
 <li><p>Get beginning time based on day - <code class="docutils literal notranslate"><span class="pre">date_trunc(&quot;DAY&quot;,</span> <span class="pre">current_timestamp())</span></code></p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

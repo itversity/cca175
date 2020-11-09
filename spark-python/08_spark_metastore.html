@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -463,11 +463,14 @@
 <li><p>Let us say <code class="docutils literal notranslate"><span class="pre">spark</span></code> is of type <code class="docutils literal notranslate"><span class="pre">SparkSession</span></code>. There is an attribute as part of <code class="docutils literal notranslate"><span class="pre">spark</span></code> called as catalog and it is of type pyspark.sql.catalog.Catalog.</p></li>
 <li><p>We can access catalog using <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code>.</p></li>
 <li><p>There are several methods that is part of <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code>. We will explore them in the later topics.</p></li>
-<li><p>Following are some of the tasks that can be performed using <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code> object.</p></li>
+<li><p>Following are some of the tasks that can be performed using <code class="docutils literal notranslate"><span class="pre">spark.catalog</span></code> object.</p>
+<ul>
 <li><p>Check current database and switch to different databases.</p></li>
 <li><p>Create permanent table in metastore.</p></li>
 <li><p>Create or drop temporary views.</p></li>
 <li><p>Register functions.</p></li>
+</ul>
+</li>
 <li><p>All the above tasks can be performed using SQL style commands passed to <code class="docutils literal notranslate"><span class="pre">spark.sql</span></code>.</p></li>
 </ul>
 </div>
@@ -480,11 +483,14 @@
 <li><p>Databases can be created using <code class="docutils literal notranslate"><span class="pre">spark.sql(&quot;CREATE</span> <span class="pre">DATABASE</span> <span class="pre">database_name&quot;)</span></code>. We can list Databases using <code class="docutils literal notranslate"><span class="pre">spark.sql</span></code> or <code class="docutils literal notranslate"><span class="pre">spark.catalog.listDatabases()</span></code></p></li>
 <li><p>We can use modes such as <code class="docutils literal notranslate"><span class="pre">append</span></code>, <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> and <code class="docutils literal notranslate"><span class="pre">error</span></code> with <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code>. Default is error.</p></li>
 <li><p>We can use modes such as <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> with <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>. Default is append.</p></li>
-<li><p>When we use <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code>, following happens:</p></li>
+<li><p>When we use <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code>, following happens:</p>
+<ul>
 <li><p>Check for table if the table already exists. By default <code class="docutils literal notranslate"><span class="pre">saveAsTable</span></code> will throw exception.</p></li>
 <li><p>If the table does not exists the table will be created.</p></li>
 <li><p>Data from Data Frame will be copied into the table.</p></li>
 <li><p>We can alter the behavior by using mode. We can overwrite the existing table or we can append into it.</p></li>
+</ul>
+</li>
 <li><p>We can list the tables using <code class="docutils literal notranslate"><span class="pre">spark.catalog.listTables</span></code> after switching to appropriate database using <code class="docutils literal notranslate"><span class="pre">spark.catalog.setCurrentDatabase</span></code>.</p></li>
 <li><p>We can also switch the database and list tables using <code class="docutils literal notranslate"><span class="pre">spark.sql</span></code>.</p></li>
 </ul>
@@ -617,12 +623,15 @@
 <h3><span class="section-number">8.5.1. </span>Tasks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Let us perform tasks to create empty table using <code class="docutils literal notranslate"><span class="pre">spark.catalog.createTable</span></code> or using <code class="docutils literal notranslate"><span class="pre">spark.catalog.createExternalTable</span></code>.</p>
 <ul class="simple">
-<li><p>Create database <strong>hr_db</strong> and table <strong>employees</strong> with following fields. Let us create Database first and then we will see how to create table.</p></li>
+<li><p>Create database <strong>hr_db</strong> and table <strong>employees</strong> with following fields. Let us create Database first and then we will see how to create table.</p>
+<ul>
 <li><p>employee_id of type Integer</p></li>
 <li><p>first_name of type String</p></li>
 <li><p>last_name of type String</p></li>
 <li><p>salary of type Float</p></li>
 <li><p>nationality of type String</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -719,10 +728,13 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Create database by name <strong>{username}_airlines</strong> and create external table for <strong>airport-codes.txt</strong>.</p></li>
+<li><p>Create database by name <strong>{username}_airlines</strong> and create external table for <strong>airport-codes.txt</strong>.</p>
+<ul>
 <li><p>Data have header</p></li>
 <li><p>Fields in each record are delimited by a tab character.</p></li>
 <li><p>We can pass options such as sep, header, inferSchema etc to define the schema.</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -837,10 +849,13 @@ hdfs dfs -tail /user/`whoami`/airlines_all/airport-codes/airport-codes-na.txt
 <p>Let us understand how we can insert data into existing tables using <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>.</p>
 <ul class="simple">
 <li><p>We can use modes such as <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> with <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p></li>
-<li><p>When we use <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>, following happens:</p></li>
+<li><p>When we use <code class="docutils literal notranslate"><span class="pre">insertInto</span></code>, following happens:</p>
+<ul>
 <li><p>If the table does not exist, <code class="docutils literal notranslate"><span class="pre">insertInto</span></code> will throw an exception.</p></li>
 <li><p>If the table exists, by default data will be appended.</p></li>
 <li><p>We can alter the behavior by using keyword argument overwrite. It is by default False, we can pass True to replace existing data.</p></li>
+</ul>
+</li>
 </ul>
 <div class="section" id="id2">
 <h3><span class="section-number">8.6.1. </span>Tasks<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
@@ -1315,11 +1330,14 @@ hdfs dfs -ls -R /user/`whoami`/retail_db/orders_part
 </div>
 </div>
 <ul class="simple">
-<li><p>Here are some of the transformations which can be performed.</p></li>
+<li><p>Here are some of the transformations which can be performed.</p>
+<ul>
 <li><p>Row Level Transformations using functions in SELECT clause.</p></li>
 <li><p>Filtering using WHERE clause</p></li>
 <li><p>Aggregations using GROUP BY and aggregate functions.</p></li>
 <li><p>Sorting using ORDER BY or SORT BY</p></li>
+</ul>
+</li>
 </ul>
 <div class="section" id="id5">
 <h3><span class="section-number">8.10.1. </span>Tasks<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
@@ -1335,9 +1353,12 @@ hdfs dfs -ls -R /user/`whoami`/retail_db/orders_part
 </div>
 </div>
 <ul class="simple">
-<li><p>Write a query to get number of airports per state in the US.</p></li>
+<li><p>Write a query to get number of airports per state in the US.</p>
+<ul>
 <li><p>Get only those states which have more than 10 airports.</p></li>
 <li><p>Make sure data is sorted in descending order by number of airports.</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

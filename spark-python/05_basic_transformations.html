@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -428,18 +428,27 @@
 <h2><span class="section-number">5.1. </span>Overview of Basic Transformations<a class="headerlink" href="#overview-of-basic-transformations" title="Permalink to this headline">¶</a></h2>
 <p>Let us define problem statements to learn more about Data Frame APIs. We will try to cover filtering, aggregations and sorting as part of solutions for these problem statements.</p>
 <ul class="simple">
-<li><p>Get total number of flights as well as number of flights which are delayed in departure and number of flights delayed in arrival.</p></li>
+<li><p>Get total number of flights as well as number of flights which are delayed in departure and number of flights delayed in arrival.</p>
+<ul>
 <li><p>Output should contain 3 columns - <strong>FlightCount</strong>, <strong>DepDelayedCount</strong>, <strong>ArrDelayedCount</strong></p></li>
-<li><p>Get number of flights which are delayed in departure and number of flights delayed in arrival for each day along with number of flights departed for each day.</p></li>
+</ul>
+</li>
+<li><p>Get number of flights which are delayed in departure and number of flights delayed in arrival for each day along with number of flights departed for each day.</p>
+<ul>
 <li><p>Output should contain 4 columns - <strong>FlightDate</strong>, <strong>FlightCount</strong>, <strong>DepDelayedCount</strong>, <strong>ArrDelayedCount</strong></p></li>
 <li><p><strong>FlightDate</strong> should be of <strong>YYYY-MM-dd</strong> format.</p></li>
 <li><p>Data should be <strong>sorted</strong> in ascending order by <strong>flightDate</strong></p></li>
-<li><p>Get all the flights which are departed late but arrived early (<strong>IsArrDelayed is NO</strong>).</p></li>
+</ul>
+</li>
+<li><p>Get all the flights which are departed late but arrived early (<strong>IsArrDelayed is NO</strong>).</p>
+<ul>
 <li><p>Output should contain - <strong>FlightCRSDepTime</strong>, <strong>UniqueCarrier</strong>, <strong>FlightNum</strong>, <strong>Origin</strong>, <strong>Dest</strong>, <strong>DepDelay</strong>, <strong>ArrDelay</strong></p></li>
 <li><p><strong>FlightCRSDepTime</strong> need to be computed using <strong>Year</strong>, <strong>Month</strong>, <strong>DayOfMonth</strong>, <strong>CRSDepTime</strong></p></li>
 <li><p><strong>FlightCRSDepTime</strong> should be displayed using <strong>YYYY-MM-dd HH:mm</strong> format.</p></li>
 <li><p>Output should be sorted by <strong>FlightCRSDepTime</strong> and then by the difference between <strong>DepDelay</strong> and <strong>ArrDelay</strong></p></li>
 <li><p>Also get the count of such flights</p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="starting-spark-context">
@@ -836,14 +845,20 @@
 <p>Let us go through the details related to aggregation using Spark.</p>
 <ul class="simple">
 <li><p>We can perform total aggregations directly on Dataframe or we can perform aggregations after grouping by a key(s).</p></li>
-<li><p>Here are the APIs which we typically use to group the data using a key.</p></li>
+<li><p>Here are the APIs which we typically use to group the data using a key.</p>
+<ul>
 <li><p>groupBy</p></li>
 <li><p>rollup</p></li>
 <li><p>cube</p></li>
-<li><p>Here are the functions which we typically use to perform aggregations.</p></li>
+</ul>
+</li>
+<li><p>Here are the functions which we typically use to perform aggregations.</p>
+<ul>
 <li><p>count</p></li>
 <li><p>sum, avg</p></li>
 <li><p>min, max</p></li>
+</ul>
+</li>
 <li><p>If we want to provide aliases to the aggregated fields then we have to use <mark>agg</mark> after <mark>groupBy</mark>.</p></li>
 </ul>
 </div>
