@@ -314,8 +314,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pre-requisites-and-module-introduction">
-   3.1. Pre-requisites and Module Introduction
+  <a class="reference internal nav-link" href="#pre-requisites-and-objectives">
+   3.1. Pre-requisites and Objectives
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -405,9 +405,25 @@
                 
   <div class="section" id="data-processing-overview">
 <h1><span class="section-number">3. </span>Data Processing - Overview<a class="headerlink" href="#data-processing-overview" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pre-requisites-and-module-introduction">
-<h2><span class="section-number">3.1. </span>Pre-requisites and Module Introduction<a class="headerlink" href="#pre-requisites-and-module-introduction" title="Permalink to this headline">¶</a></h2>
-<p>Let us understand prerequisites before getting into the module.</p>
+<p>As part of this section we will get an overview about Data Processing using Spark with Python.</p>
+<ul class="simple">
+<li><p>Pre-requisites and Objectives</p></li>
+<li><p>Starting Spark Context</p></li>
+<li><p>Overview of Spark read APIs</p></li>
+<li><p>Understand airlines data</p></li>
+<li><p>Inferring Schema</p></li>
+<li><p>Previewing airlines data</p></li>
+<li><p>Overview of Data Frame APIs</p></li>
+<li><p>Overview of Functions</p></li>
+<li><p>Overview of Spark Write APIs</p></li>
+<li><p>Reorganizing airlines data</p></li>
+<li><p>Previewing reorganized data</p></li>
+<li><p>Analyze and Understand Data</p></li>
+<li><p>Conclusion</p></li>
+</ul>
+<div class="section" id="pre-requisites-and-objectives">
+<h2><span class="section-number">3.1. </span>Pre-requisites and Objectives<a class="headerlink" href="#pre-requisites-and-objectives" title="Permalink to this headline">¶</a></h2>
+<p>Let us understand prerequisites before getting into the topics related to this section.</p>
 <ul class="simple">
 <li><p>Good understanding of Data Processing using Python.</p></li>
 <li><p>Data Processing Life Cycle</p>
@@ -420,7 +436,7 @@
 <li><p>We can also use Databases as sources and sinks. It will be covered at a later point in time.</p></li>
 <li><p>We can also read data in streaming fashion which is out of the scope of this course.</p></li>
 </ul>
-<p>We will get an overview of the Data Processing Life Cycle by the end of the module.</p>
+<p>We will get an overview of the Data Processing Life Cycle by the end of the section.</p>
 <ul class="simple">
 <li><p>Read airlines data from the file.</p></li>
 <li><p>Preview the schema and data to understand the characteristics of the data.</p></li>
@@ -449,11 +465,14 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
 
-<span class="c1"># spark.stop()</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">()</span>
+
 <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span> \
     <span class="n">builder</span><span class="o">.</span> \
-    <span class="n">config</span><span class="p">(</span><span class="s1">&#39;spark.ui.port&#39;</span><span class="p">,</span> <span class="s1">&#39;12903&#39;</span><span class="p">)</span><span class="o">.</span> \
-    <span class="n">appName</span><span class="p">(</span><span class="s1">&#39;Data Processing - Overview&#39;</span><span class="p">)</span><span class="o">.</span> \
+    <span class="n">config</span><span class="p">(</span><span class="s1">&#39;spark.ui.port&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="o">.</span> \
+    <span class="n">enableHiveSupport</span><span class="o">.</span> \
+    <span class="n">appName</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s1"> | Python - Data Processing - Overview&#39;</span><span class="p">)</span><span class="o">.</span> \
     <span class="n">master</span><span class="p">(</span><span class="s1">&#39;yarn&#39;</span><span class="p">)</span><span class="o">.</span> \
     <span class="n">getOrCreate</span><span class="p">()</span>
 </pre></div>
@@ -515,7 +534,12 @@
 <li><p>Reading JSON data from text files. We can infer schema from the data as each JSON object contain both column name and value.</p></li>
 <li><p>Example for JSON</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;order_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2013-07-25 00:00:00.0&#39;</span><span class="p">,</span> <span class="s1">&#39;order_customer_id&#39;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span> <span class="s1">&#39;order_status&#39;</span><span class="p">:</span> <span class="s1">&#39;COMPLETE&#39;</span> <span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;order_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="nt">&quot;order_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-07-25 00:00:00.0&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;order_customer_id&quot;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span> 
+    <span class="nt">&quot;order_status&quot;</span><span class="p">:</span> <span class="s2">&quot;COMPLETE&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <div class="cell docutils container">

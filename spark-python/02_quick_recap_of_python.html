@@ -90,7 +90,7 @@
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../cca175_intro.html">
-   CCA 175 - Spark and Hadoop Developer - Python
+   CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
 </ul>
@@ -367,8 +367,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview-of-collections-and-tuples">
-   2.6. Overview of Collections and Tuples
+  <a class="reference internal nav-link" href="#overview-of-collections">
+   2.6. Overview of Collections
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -472,7 +472,7 @@
 <h3><span class="section-number">2.2.1. </span>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h3>
 <p>Let us perform these tasks to just recollect how to use Python CLI or Jupyter Notebook.</p>
 <ul class="simple">
-<li><p>Create variables i and j assigning 10 and 20.5 respectively.</p></li>
+<li><p>Create variables <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> assigning <code class="docutils literal notranslate"><span class="pre">10</span></code> and <code class="docutils literal notranslate"><span class="pre">20.5</span></code> respectively.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,7 +483,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Add the values and assign it to res.</p></li>
+<li><p>Add the values and assign result to <code class="docutils literal notranslate"><span class="pre">res</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -494,7 +494,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Get the type of i, j and res.</p></li>
+<li><p>Get the <code class="docutils literal notranslate"><span class="pre">type</span></code> of <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">res</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -518,7 +518,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Get the help on int.</p></li>
+<li><p>Get the help on <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,7 +528,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Get the help on startswith that is available on str.</p></li>
+<li><p>Get the help on <code class="docutils literal notranslate"><span class="pre">startswith</span></code> that is available on <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -555,8 +555,8 @@
 </li>
 <li><p>Loops (for)</p>
 <ul>
-<li><p>We can iterate through collection using <mark>for i in l</mark> where l is a standard collection such as list or set.</p></li>
-<li><p>Python provides special function called as <mark>range</mark> which will return a collection of integers between the given range. It excludes the upper bound value.</p></li>
+<li><p>We can iterate through collection using <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">l</span></code> where l is a standard collection such as list or set.</p></li>
+<li><p>Python provides special function called as <code class="docutils literal notranslate"><span class="pre">range</span></code> which will return a collection of integers between the given range. It excludes the upper bound value.</p></li>
 </ul>
 </li>
 <li><p>In Python, scope is defined by indentation.</p></li>
@@ -591,7 +591,7 @@
 <h2><span class="section-number">2.4. </span>Developing Functions<a class="headerlink" href="#developing-functions" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to develop functions using Python as programming language.</p>
 <ul class="simple">
-<li><p>Function starts with <mark>def</mark> followed by function name.</p></li>
+<li><p>Function starts with <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by function name.</p></li>
 <li><p>Parameters can be of different types.</p>
 <ul>
 <li><p>Required</p></li>
@@ -612,8 +612,13 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sumOfN</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">sumOfN</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sumOfN</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -622,8 +627,13 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sumOfIntegers</span><span class="p">(</span><span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">sumOfN</span><span class="p">(</span><span class="n">ub</span><span class="p">)</span> <span class="o">-</span> <span class="n">sumOfN</span><span class="p">(</span><span class="n">lb</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">sumOfIntegers</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sumOfIntegers</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -638,8 +648,13 @@
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lb</span><span class="p">,</span> <span class="n">ub</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">total</span> <span class="o">+=</span> <span class="n">e</span>
     <span class="k">return</span> <span class="n">total</span>
-
-<span class="n">sumOfIntegers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sumOfIntegers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -654,8 +669,13 @@
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lb</span><span class="p">,</span> <span class="n">ub</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">total</span> <span class="o">+=</span> <span class="n">e</span> <span class="o">*</span> <span class="n">e</span>
     <span class="k">return</span> <span class="n">total</span>
-
-<span class="n">sumOfSquares</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sumOfSquares</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -670,8 +690,13 @@
     <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lb</span><span class="p">,</span> <span class="n">ub</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">total</span> <span class="o">+=</span> <span class="n">e</span> <span class="k">if</span> <span class="n">e</span><span class="o">%</span><span class="k">2</span>==0 else 0
     <span class="k">return</span> <span class="n">total</span>
-
-<span class="n">sumOfEvens</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sumOfEvens</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -691,7 +716,7 @@
 <ul class="simple">
 <li><p>Create a generic function mySum which is supposed to perform arithmetic using integers within a range.</p>
 <ul>
-<li><p>It takes 3 arguments - lb, ub and f.</p></li>
+<li><p>It takes 3 arguments - <code class="docutils literal notranslate"><span class="pre">lb</span></code>, <code class="docutils literal notranslate"><span class="pre">ub</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
 <li><p>Function f should be invoked inside the function on each element within the range.</p></li>
 </ul>
 </li>
@@ -708,7 +733,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Sum of integers between lower bound and upper bound using mySum.</p></li>
+<li><p>Sum of integers between lower bound and upper bound using <code class="docutils literal notranslate"><span class="pre">mySum</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,7 +743,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Sum of squares of integers between lower bound and upper bound using mySum.</p></li>
+<li><p>Sum of squares of integers between lower bound and upper bound using <code class="docutils literal notranslate"><span class="pre">mySum</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -728,7 +753,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>Sum of the even numbers between lower bound and upper bound using mySum.</p></li>
+<li><p>Sum of the even numbers between lower bound and upper bound using <code class="docutils literal notranslate"><span class="pre">mySum</span></code>.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,17 +764,17 @@
 </div>
 </div>
 </div>
-<div class="section" id="overview-of-collections-and-tuples">
-<h2><span class="section-number">2.6. </span>Overview of Collections and Tuples<a class="headerlink" href="#overview-of-collections-and-tuples" title="Permalink to this headline">¶</a></h2>
-<p>Let’s quickly recap about Collections and Tuples in Python. We will primarily talk about collections and tuples that comes as part of Python standard library such as <mark>list</mark>, <mark>set</mark>,<mark> dict</mark> and <mark>tuple.</mark></p>
+<div class="section" id="overview-of-collections">
+<h2><span class="section-number">2.6. </span>Overview of Collections<a class="headerlink" href="#overview-of-collections" title="Permalink to this headline">¶</a></h2>
+<p>Let’s quickly recap about Collections and Tuples in Python. We will primarily talk about collections that comes as part of Python standard library such as <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> and <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.</p>
 <ul class="simple">
-<li><p>Group of elements with length and index - <mark>list</mark></p></li>
-<li><p>Group of unique elements - <mark>set</mark></p></li>
-<li><p>Group of key value pairs - <mark>dict</mark></p></li>
-<li><p>While list, set and dict contain group of homogeneous elements, tuple contains group of heterogeneous elements.</p></li>
-<li><p>We can consider list, set and dict as a table in a database and tuple as a row or record in a given table.</p></li>
-<li><p>Typically we create list of tuples or set of tuples and dict is nothing but collection of tuples with 2 elements and key is unique.</p></li>
-<li><p>We typically use Map Reduce APIs to process the data in collections. There are also some pre-defined functions such as <mark>len</mark>, <mark>sum</mark>,<mark> min</mark>,<mark> max</mark> etc for aggregating data in collections.</p></li>
+<li><p>Group of elements with length and index - <code class="docutils literal notranslate"><span class="pre">list</span></code></p></li>
+<li><p>Group of unique elements - <code class="docutils literal notranslate"><span class="pre">set</span></code></p></li>
+<li><p>Group of key value pairs - <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p>While <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span></code> contain group of homogeneous elements, <code class="docutils literal notranslate"><span class="pre">dict</span></code> and <code class="docutils literal notranslate"><span class="pre">tuple</span></code> contains group of heterogeneous elements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">set</span></code> are analogous to a database table while <code class="docutils literal notranslate"><span class="pre">dict</span></code> or <code class="docutils literal notranslate"><span class="pre">tuple</span></code> are analogous to individual record.</p></li>
+<li><p>Typically we create list of tuples or dicts or set of tuples or dicts. Also a dict can be considered as list of pairs.</p></li>
+<li><p>We typically use Map Reduce APIs to process the data in collections. There are also some pre-defined functions such as <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code> etc for aggregating data in collections.</p></li>
 </ul>
 <div class="section" id="id4">
 <h3><span class="section-number">2.6.1. </span>Tasks<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
@@ -760,6 +785,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sh</span>
+
 ls -ltr /data/retail_db/orders/part-00000
 </pre></div>
 </div>
@@ -833,8 +859,13 @@ ls -ltr /data/retail_db/orders/part-00000
                           <span class="n">order_items_filtered</span>
                          <span class="p">)</span>
     <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">order_items_map</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">get_order_revenue</span><span class="p">(</span><span class="n">order_items</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_order_revenue</span><span class="p">(</span><span class="n">order_items</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -865,13 +896,16 @@ ls -ltr /data/retail_db/orders/part-00000
 <p>Let us perform few tasks to recap the usage of Pandas Data Frames.</p>
 <ul class="simple">
 <li><p>Read order items data from the location on your system. In mine it is /data/retail_db/order_items/part-00000. Use the information below to define schema.</p></li>
-<li><p>It has 6 fields with the below names in the same order as specified below.</p></li>
+<li><p>It has 6 fields with the below names in the same order as specified below.</p>
+<ul>
 <li><p>order_item_id</p></li>
 <li><p>order_item_order_id</p></li>
 <li><p>order_item_product_id</p></li>
 <li><p>order_item_quantity</p></li>
 <li><p>order_item_subtotal</p></li>
 <li><p>order_item_product_price</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -996,7 +1030,7 @@ ls -ltr /data/retail_db/orders/part-00000
 <li><p>Get the number of <strong>connections</strong> with each title.</p></li>
 <li><p>Get the number of <strong>connections</strong> from each company.</p></li>
 <li><p>Get the number of <strong>contacts</strong> for each month in the year 2018.</p></li>
-<li><p>Use Postgres or MySQL as databases (you can setup in your laptop) and write connections data to the database</p></li>
+<li><p>Use Postgres or MySQL as databases (you can setup in your laptop) and write <strong>connections</strong> data to the database</p></li>
 </ul>
 </div>
 </div>
