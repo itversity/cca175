@@ -5,58 +5,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. DML and Partitioning &#8212; My Jupyter Book</title>
+    <title>DML and Partitioning &#8212; My Jupyter Book</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
   <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
   <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Pre-defined Functions" href="05_predefined_functions.html" />
-    <link rel="prev" title="3. Basic DDL and DML" href="03_basic_ddl_and_dml.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,7 +71,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
+<a class="navbar-brand text-wrap" href="../../index.html">
   
   
   <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
@@ -81,7 +79,7 @@
 </a>
 </div>
 
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -89,7 +87,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../cca175_intro.html">
+  <a class="reference internal" href="../../cca175_intro.html">
    CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
@@ -101,42 +99,42 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/01_getting_started.html">
+  <a class="reference internal" href="../../spark-python/01_getting_started.html">
    1. Getting Started
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/02_quick_recap_of_python.html">
+  <a class="reference internal" href="../../spark-python/02_quick_recap_of_python.html">
    2. Quick Recap of Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/03_data_processing_overview.html">
+  <a class="reference internal" href="../../spark-python/03_data_processing_overview.html">
    3. Data Processing - Overview
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/04_processing_column_data.html">
+  <a class="reference internal" href="../../spark-python/04_processing_column_data.html">
    4. Processing Column Data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/05_basic_transformations.html">
+  <a class="reference internal" href="../../spark-python/05_basic_transformations.html">
    5. Basic Transformations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/06_joining_data_sets.html">
+  <a class="reference internal" href="../../spark-python/06_joining_data_sets.html">
    6. Joining Data Sets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/07_windowing_functions.html">
+  <a class="reference internal" href="../../spark-python/07_windowing_functions.html">
    7. Windowing Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/08_spark_metastore.html">
+  <a class="reference internal" href="../../spark-python/08_spark_metastore.html">
    8. Spark Metastore
   </a>
  </li>
@@ -148,42 +146,42 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/01_getting_started.html">
+  <a class="reference internal" href="../../spark-scala/01_getting_started.html">
    1. Getting Started
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/02_quick_recap_of_scala.html">
+  <a class="reference internal" href="../../spark-scala/02_quick_recap_of_scala.html">
    2. Quick Recap of Scala
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/03_data_processing_overview.html">
+  <a class="reference internal" href="../../spark-scala/03_data_processing_overview.html">
    3. Data Processing - Overview
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/04_processing_column_data.html">
+  <a class="reference internal" href="../../spark-scala/04_processing_column_data.html">
    4. Processing Column Data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/05_basic_transformations.html">
+  <a class="reference internal" href="../../spark-scala/05_basic_transformations.html">
    5. Basic Transformations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/06_joining_data_sets.html">
+  <a class="reference internal" href="../../spark-scala/06_joining_data_sets.html">
    6. Joining Data Sets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/07_windowing_functions.html">
+  <a class="reference internal" href="../../spark-scala/07_windowing_functions.html">
    7. Windowing Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/08_spark_metastore.html">
+  <a class="reference internal" href="../../spark-scala/08_spark_metastore.html">
    8. Spark Metastore
   </a>
  </li>
@@ -193,34 +191,34 @@
   Apache Spark using SQL
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01_getting_started.html">
+  <a class="reference internal" href="../../spark-sql/01_getting_started.html">
    1. Getting Started
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02_basic_transformations.html">
+  <a class="reference internal" href="../../spark-sql/02_basic_transformations.html">
    2. Basic Transformations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03_basic_ddl_and_dml.html">
+  <a class="reference internal" href="../../spark-sql/03_basic_ddl_and_dml.html">
    3. Basic DDL and DML
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../spark-sql/04_dml_and_partitioning.html">
    4. DML and Partitioning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05_predefined_functions.html">
+  <a class="reference internal" href="../../spark-sql/05_predefined_functions.html">
    5. Pre-defined Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06_windowing_functions.html">
+  <a class="reference internal" href="../../spark-sql/06_windowing_functions.html">
    6. Windowing Functions
   </a>
  </li>
@@ -266,7 +264,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/spark-sql/04_dml_and_partitioning.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/archive_20201117/spark-sql/04_dml_and_partitioning.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -291,10 +289,10 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/spark-sql/04_dml_and_partitioning.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/archive_20201117/spark-sql/04_dml_and_partitioning.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
+                    src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -315,57 +313,57 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-partitioning">
-   4.1. Introduction to Partitioning
+   Introduction to Partitioning
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-tables-using-parquet">
-   4.2. Creating Tables using Parquet
+   Creating Tables using Parquet
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-vs-insert">
-   4.3. LOAD vs. INSERT
+   LOAD vs. INSERT
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inserting-data-using-stage-table">
-   4.4. Inserting Data using Stage Table
+   Inserting Data using Stage Table
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-partitioned-tables">
-   4.5. Creating Partitioned Tables
+   Creating Partitioned Tables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-partitions-to-tables">
-   4.6. Adding Partitions to Tables
+   Adding Partitions to Tables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-into-partitions">
-   4.7. Loading into Partitions
+   Loading into Partitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inserting-data-into-partitions">
-   4.8. Inserting Data into Partitions
+   Inserting Data into Partitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#using-dynamic-partition-mode">
-   4.9. Using Dynamic Partition Mode
+   Using Dynamic Partition Mode
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-partitioned-tables">
-   4.10. Exercise - Partitioned Tables
+   Exercise - Partitioned Tables
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#validation">
-     4.10.1. Validation
+     Validation
     </a>
    </li>
   </ul>
@@ -382,7 +380,7 @@
               <div>
                 
   <div class="section" id="dml-and-partitioning">
-<h1><span class="section-number">4. </span>DML and Partitioning<a class="headerlink" href="#dml-and-partitioning" title="Permalink to this headline">¶</a></h1>
+<h1>DML and Partitioning<a class="headerlink" href="#dml-and-partitioning" title="Permalink to this headline">¶</a></h1>
 <p>As part of this section we will continue understanding further concepts related to DML and also get into the details related to partitioning tables. With respect to DML, earlier we have seen how to use LOAD command, now we will see how to use INSERT command primarily to get query results copied into a table.</p>
 <ul class="simple">
 <li><p>Introduction to Partitioning</p></li>
@@ -396,10 +394,6 @@
 <li><p>Using Dynamic Partition Mode</p></li>
 <li><p>Exercise - Partitioned Tables</p></li>
 </ul>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/vnNhIcvjQqs?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <p><strong>Unlike Hive, Spark SQL does not support Bucketing which is similar to Hash Partitioning. However, Delta Lake does. Delta Lake is 3rd party library which facilitate us additional capabilities such as ACID transactions on top of Spark Metastore tables</strong></p>
 <p>Let us make sure that we have orders table with data as we will be using it to populate partitioned tables very soon.</p>
 <div class="cell docutils container">
@@ -413,13 +407,12 @@
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">org.apache.spark.sql.SparkSession</span>
 
-<span class="k">val</span> <span class="n">username</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="n">getProperty</span><span class="o">(</span><span class="s">&quot;user.name&quot;</span><span class="o">)</span>
 <span class="k">val</span> <span class="n">spark</span> <span class="o">=</span> <span class="nc">SparkSession</span><span class="o">.</span>
     <span class="n">builder</span><span class="o">.</span>
     <span class="n">config</span><span class="o">(</span><span class="s">&quot;spark.ui.port&quot;</span><span class="o">,</span> <span class="s">&quot;0&quot;</span><span class="o">).</span>
-    <span class="n">config</span><span class="o">(</span><span class="s">&quot;spark.sql.warehouse.dir&quot;</span><span class="o">,</span> <span class="s">s&quot;/user/</span><span class="si">${</span><span class="n">username</span><span class="si">}</span><span class="s">/warehouse&quot;</span><span class="o">).</span>
+    <span class="n">config</span><span class="o">(</span><span class="s">&quot;spark.sql.warehouse.dir&quot;</span><span class="o">,</span> <span class="s">&quot;/user/itversity/warehouse&quot;</span><span class="o">).</span>
     <span class="n">enableHiveSupport</span><span class="o">.</span>
-    <span class="n">appName</span><span class="o">(</span><span class="s">s&quot;</span><span class="si">${</span><span class="n">username</span><span class="si">}</span><span class="s"> | Spark SQL - Managing Tables - DML and Partitioning&quot;</span><span class="o">).</span>
+    <span class="n">appName</span><span class="o">(</span><span class="s">&quot;Spark SQL - Managing Tables - DML and Partitioning&quot;</span><span class="o">).</span>
     <span class="n">master</span><span class="o">(</span><span class="s">&quot;yarn&quot;</span><span class="o">).</span>
     <span class="n">getOrCreate</span>
 </pre></div>
@@ -496,12 +489,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </div>
 </div>
 <div class="section" id="introduction-to-partitioning">
-<h2><span class="section-number">4.1. </span>Introduction to Partitioning<a class="headerlink" href="#introduction-to-partitioning" title="Permalink to this headline">¶</a></h2>
+<h2>Introduction to Partitioning<a class="headerlink" href="#introduction-to-partitioning" title="Permalink to this headline">¶</a></h2>
 <p>Let us get an overview of partitioning of Spark Metastore tables.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/ht8FHTF6y6E?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>It is similar to list partitioning where each partition is equal to a particular value for a given column.</p></li>
 <li><p>Spark Metastore does not support range partitioning and bucketing. Bucketing is supported in Hive which is similar to Hash Partitioning.</p></li>
@@ -511,12 +500,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </ul>
 </div>
 <div class="section" id="creating-tables-using-parquet">
-<h2><span class="section-number">4.2. </span>Creating Tables using Parquet<a class="headerlink" href="#creating-tables-using-parquet" title="Permalink to this headline">¶</a></h2>
+<h2>Creating Tables using Parquet<a class="headerlink" href="#creating-tables-using-parquet" title="Permalink to this headline">¶</a></h2>
 <p>Let us create order_items table using Parquet file format. By default, the files of table using Parquet file format are compressed using Snappy algorithm.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/zcMq7om95hw?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>A table with parquet file format can be external.</p></li>
 <li><p>In our case we will create managed table with file format as parquet in STORED AS clause.</p></li>
@@ -571,7 +556,7 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 <ul class="simple">
 <li><p>To get complete output run the below command using <code class="docutils literal notranslate"><span class="pre">spark-sql</span></code>. Here is the output look like.</p></li>
 </ul>
-<p><img alt="image.png" src="spark-sql/attachment:image.png" /></p>
+<p><img alt="image.png" src="archive_20201117/spark-sql/attachment:image.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -606,12 +591,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </div>
 </div>
 <div class="section" id="load-vs-insert">
-<h2><span class="section-number">4.3. </span>LOAD vs. INSERT<a class="headerlink" href="#load-vs-insert" title="Permalink to this headline">¶</a></h2>
+<h2>LOAD vs. INSERT<a class="headerlink" href="#load-vs-insert" title="Permalink to this headline">¶</a></h2>
 <p>Let us compare and contrast LOAD and INSERT commands. These are the main approaches using which we get data into Spark Metastore tables.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/DZSIVt0sG5k?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>LOAD will copy the files by dividing them into blocks.</p></li>
 <li><p>LOAD is the fastest way of getting data into Spark Metastore tables. However, there will be minimal validations at File level.</p></li>
@@ -697,12 +678,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/order_items&#39;
 </div>
 </div>
 <div class="section" id="inserting-data-using-stage-table">
-<h2><span class="section-number">4.4. </span>Inserting Data using Stage Table<a class="headerlink" href="#inserting-data-using-stage-table" title="Permalink to this headline">¶</a></h2>
+<h2>Inserting Data using Stage Table<a class="headerlink" href="#inserting-data-using-stage-table" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to insert data into order_items with Parquet file format.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/qb869zZKZk8?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <p>As data is in text file format and our table is created with Parquet file format, we will not be able to use LOAD command to load the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,12 +888,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/order_items&#39; INTO TABLE order_it
 </div>
 </div>
 <div class="section" id="creating-partitioned-tables">
-<h2><span class="section-number">4.5. </span>Creating Partitioned Tables<a class="headerlink" href="#creating-partitioned-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Creating Partitioned Tables<a class="headerlink" href="#creating-partitioned-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to create partitioned table and get data into that table.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/BSs1ToOfq40?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Earlier we have already created orders table. We will use that as reference and create partitioned table.</p></li>
 <li><p>We can use <code class="docutils literal notranslate"><span class="pre">PARTITIONED</span> <span class="pre">BY</span></code> clause to define the <strong>column along with data type</strong>. In our case we will use <strong>order_month as partition column</strong>.</p></li>
@@ -995,12 +968,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/order_items&#39; INTO TABLE order_it
 </div>
 </div>
 <div class="section" id="adding-partitions-to-tables">
-<h2><span class="section-number">4.6. </span>Adding Partitions to Tables<a class="headerlink" href="#adding-partitions-to-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Adding Partitions to Tables<a class="headerlink" href="#adding-partitions-to-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how we can add static partitions to Partitioned tables in Spark Metastore.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/NDPlI9sJlR0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>We can add partitions using <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> command with <code class="docutils literal notranslate"><span class="pre">ADD</span> <span class="pre">PARTITION</span></code>.</p></li>
 <li><p>For each and every partition created, a subdirectory will be created using partition column name and corresponding value under the table directory.</p></li>
@@ -1155,12 +1124,8 @@ ALTER TABLE orders_part ADD PARTITION (order_month=&#39;2013-07&#39;)
 </div>
 </div>
 <div class="section" id="loading-into-partitions">
-<h2><span class="section-number">4.7. </span>Loading into Partitions<a class="headerlink" href="#loading-into-partitions" title="Permalink to this headline">¶</a></h2>
+<h2>Loading into Partitions<a class="headerlink" href="#loading-into-partitions" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to use load command to load data into partitioned tables.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/gu4oG0aJ0js?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>We need to make sure that file format of the file which is being loaded into table is same as the file format used while creating the table.</p></li>
 <li><p>We also need to make sure that delimiters are consistent between files and table for text file format.</p></li>
@@ -1267,12 +1232,8 @@ LOAD DATA LOCAL INPATH &#39;/home/itversity/orders/orders_201310&#39;
 </div>
 </div>
 <div class="section" id="inserting-data-into-partitions">
-<h2><span class="section-number">4.8. </span>Inserting Data into Partitions<a class="headerlink" href="#inserting-data-into-partitions" title="Permalink to this headline">¶</a></h2>
+<h2>Inserting Data into Partitions<a class="headerlink" href="#inserting-data-into-partitions" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to use insert to get data into static partitions in Spark Metastore from existing table called as orders.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/BOwfYgUCf7s?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Let us recap what is covered so far related to partitioned tables.</p>
 <ul>
@@ -1342,12 +1303,8 @@ INSERT INTO TABLE orders_part PARTITION (order_month=201311)
 </div>
 </div>
 <div class="section" id="using-dynamic-partition-mode">
-<h2><span class="section-number">4.9. </span>Using Dynamic Partition Mode<a class="headerlink" href="#using-dynamic-partition-mode" title="Permalink to this headline">¶</a></h2>
+<h2>Using Dynamic Partition Mode<a class="headerlink" href="#using-dynamic-partition-mode" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how we can insert data into partitioned table using dynamic partition mode.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/9eYd6A6A1ZA?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Using dynamic partition mode we need not pre create the partitions. Partitions will be automatically created when we issue INSERT command in dynamic partition mode.</p></li>
 <li><p>To insert data using dynamic partition mode, we need to set the property <code class="docutils literal notranslate"><span class="pre">hive.exec.dynamic.partition</span></code> to <strong>true</strong></p></li>
@@ -1470,12 +1427,8 @@ WHERE order_date &gt;= &#39;2013-12-01 00:00:00.0&#39;
 </ul>
 </div>
 <div class="section" id="exercise-partitioned-tables">
-<h2><span class="section-number">4.10. </span>Exercise - Partitioned Tables<a class="headerlink" href="#exercise-partitioned-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Exercise - Partitioned Tables<a class="headerlink" href="#exercise-partitioned-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us take care of this exercise related to partitioning to self evaluate our comfort level in working with partitioned tables.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/j7fTXOeJgGQ?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Duration: <strong>30 Minutes</strong></p></li>
 <li><p>Use data from <strong>/data/nyse_all/nyse_data</strong></p></li>
@@ -1501,7 +1454,7 @@ WHERE order_date &gt;= &#39;2013-12-01 00:00:00.0&#39;
 </li>
 </ul>
 <div class="section" id="validation">
-<h3><span class="section-number">4.10.1. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+<h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
 <p>Here are the instructions to validate the results.</p>
 <ul class="simple">
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">hdfs</span> <span class="pre">dfs</span> <span class="pre">-ls</span> <span class="pre">/user/YOUR_OS_USER_NAME/warehouse/YOUR_OS_USER_NAME_nyse.db/nyse_eod_part</span></code></p></li>
@@ -1542,7 +1495,7 @@ WHERE order_date &gt;= &#39;2013-12-01 00:00:00.0&#39;
         },
         kernelOptions: {
             kernelName: "apache_toree_scala",
-            path: "./spark-sql"
+            path: "./archive_20201117/spark-sql"
         },
         predefinedOutput: true
     }
@@ -1557,8 +1510,6 @@ WHERE order_date &gt;= &#39;2013-12-01 00:00:00.0&#39;
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="03_basic_ddl_and_dml.html" title="previous page"><span class="section-number">3. </span>Basic DDL and DML</a>
-    <a class='right-next' id="next-link" href="05_predefined_functions.html" title="next page"><span class="section-number">5. </span>Pre-defined Functions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -1578,7 +1529,7 @@ WHERE order_date &gt;= &#39;2013-12-01 00:00:00.0&#39;
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     

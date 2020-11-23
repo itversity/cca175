@@ -5,58 +5,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Basic DDL and DML &#8212; My Jupyter Book</title>
+    <title>Basic DDL and DML &#8212; My Jupyter Book</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
   <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
   <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. DML and Partitioning" href="04_dml_and_partitioning.html" />
-    <link rel="prev" title="2. Basic Transformations" href="02_basic_transformations.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,7 +71,7 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
+<a class="navbar-brand text-wrap" href="../../index.html">
   
   
   <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
@@ -81,7 +79,7 @@
 </a>
 </div>
 
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -89,7 +87,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../cca175_intro.html">
+  <a class="reference internal" href="../../cca175_intro.html">
    CCA 175 - Spark and Hadoop Developer
   </a>
  </li>
@@ -101,42 +99,42 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/01_getting_started.html">
+  <a class="reference internal" href="../../spark-python/01_getting_started.html">
    1. Getting Started
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/02_quick_recap_of_python.html">
+  <a class="reference internal" href="../../spark-python/02_quick_recap_of_python.html">
    2. Quick Recap of Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/03_data_processing_overview.html">
+  <a class="reference internal" href="../../spark-python/03_data_processing_overview.html">
    3. Data Processing - Overview
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/04_processing_column_data.html">
+  <a class="reference internal" href="../../spark-python/04_processing_column_data.html">
    4. Processing Column Data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/05_basic_transformations.html">
+  <a class="reference internal" href="../../spark-python/05_basic_transformations.html">
    5. Basic Transformations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/06_joining_data_sets.html">
+  <a class="reference internal" href="../../spark-python/06_joining_data_sets.html">
    6. Joining Data Sets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/07_windowing_functions.html">
+  <a class="reference internal" href="../../spark-python/07_windowing_functions.html">
    7. Windowing Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-python/08_spark_metastore.html">
+  <a class="reference internal" href="../../spark-python/08_spark_metastore.html">
    8. Spark Metastore
   </a>
  </li>
@@ -148,42 +146,42 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/01_getting_started.html">
+  <a class="reference internal" href="../../spark-scala/01_getting_started.html">
    1. Getting Started
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/02_quick_recap_of_scala.html">
+  <a class="reference internal" href="../../spark-scala/02_quick_recap_of_scala.html">
    2. Quick Recap of Scala
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/03_data_processing_overview.html">
+  <a class="reference internal" href="../../spark-scala/03_data_processing_overview.html">
    3. Data Processing - Overview
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/04_processing_column_data.html">
+  <a class="reference internal" href="../../spark-scala/04_processing_column_data.html">
    4. Processing Column Data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/05_basic_transformations.html">
+  <a class="reference internal" href="../../spark-scala/05_basic_transformations.html">
    5. Basic Transformations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/06_joining_data_sets.html">
+  <a class="reference internal" href="../../spark-scala/06_joining_data_sets.html">
    6. Joining Data Sets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/07_windowing_functions.html">
+  <a class="reference internal" href="../../spark-scala/07_windowing_functions.html">
    7. Windowing Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../spark-scala/08_spark_metastore.html">
+  <a class="reference internal" href="../../spark-scala/08_spark_metastore.html">
    8. Spark Metastore
   </a>
  </li>
@@ -193,34 +191,34 @@
   Apache Spark using SQL
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="01_getting_started.html">
+  <a class="reference internal" href="../../spark-sql/01_getting_started.html">
    1. Getting Started
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02_basic_transformations.html">
+  <a class="reference internal" href="../../spark-sql/02_basic_transformations.html">
    2. Basic Transformations
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../spark-sql/03_basic_ddl_and_dml.html">
    3. Basic DDL and DML
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04_dml_and_partitioning.html">
+  <a class="reference internal" href="../../spark-sql/04_dml_and_partitioning.html">
    4. DML and Partitioning
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05_predefined_functions.html">
+  <a class="reference internal" href="../../spark-sql/05_predefined_functions.html">
    5. Pre-defined Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06_windowing_functions.html">
+  <a class="reference internal" href="../../spark-sql/06_windowing_functions.html">
    6. Windowing Functions
   </a>
  </li>
@@ -266,7 +264,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/spark-sql/03_basic_ddl_and_dml.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/archive_20201117/spark-sql/03_basic_ddl_and_dml.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -291,10 +289,10 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/spark-sql/03_basic_ddl_and_dml.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/archive_20201117/spark-sql/03_basic_ddl_and_dml.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
+                    src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -315,67 +313,67 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-spark-metastore-tables">
-   3.1. Create Spark Metastore Tables
+   Create Spark Metastore Tables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview-of-data-types">
-   3.2. Overview of Data Types
+   Overview of Data Types
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-comments">
-   3.3. Adding Comments
+   Adding Comments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-data-into-tables-local">
-   3.4. Loading Data into Tables - Local
+   Loading Data into Tables - Local
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-data-into-tables-hdfs">
-   3.5. Loading Data into Tables - HDFS
+   Loading Data into Tables - HDFS
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-data-append-and-overwrite">
-   3.6. Loading Data - Append and Overwrite
+   Loading Data - Append and Overwrite
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-external-tables">
-   3.7. Creating External Tables
+   Creating External Tables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#managed-tables-vs-external-tables">
-   3.8. Managed Tables vs. External Tables
+   Managed Tables vs. External Tables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview-of-file-formats">
-   3.9. Overview of File Formats
+   Overview of File Formats
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dropping-tables-and-databases">
-   3.10. Dropping Tables and Databases
+   Dropping Tables and Databases
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#truncating-tables">
-   3.11. Truncating Tables
+   Truncating Tables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#managed-tables-exercise">
-   3.12. Managed Tables - Exercise
+   Managed Tables - Exercise
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#validation">
-     3.12.1. Validation
+     Validation
     </a>
    </li>
   </ul>
@@ -392,7 +390,7 @@
               <div>
                 
   <div class="section" id="basic-ddl-and-dml">
-<h1><span class="section-number">3. </span>Basic DDL and DML<a class="headerlink" href="#basic-ddl-and-dml" title="Permalink to this headline">¶</a></h1>
+<h1>Basic DDL and DML<a class="headerlink" href="#basic-ddl-and-dml" title="Permalink to this headline">¶</a></h1>
 <p>As part of this section we will primarily focus on basic DDL and DML using Spark Metastore.</p>
 <ul class="simple">
 <li><p>Create Spark Metastore Tables</p></li>
@@ -407,21 +405,16 @@
 <li><p>Dropping Tables and Databases</p></li>
 <li><p>Truncating Tables</p></li>
 </ul>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/NcpeXLejH2k?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">org.apache.spark.sql.SparkSession</span>
 
-<span class="k">val</span> <span class="n">username</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="n">getProperty</span><span class="o">(</span><span class="s">&quot;user.name&quot;</span><span class="o">)</span>
 <span class="k">val</span> <span class="n">spark</span> <span class="o">=</span> <span class="nc">SparkSession</span><span class="o">.</span>
     <span class="n">builder</span><span class="o">.</span>
     <span class="n">config</span><span class="o">(</span><span class="s">&quot;spark.ui.port&quot;</span><span class="o">,</span> <span class="s">&quot;0&quot;</span><span class="o">).</span>
-    <span class="n">config</span><span class="o">(</span><span class="s">&quot;spark.sql.warehouse.dir&quot;</span><span class="o">,</span> <span class="s">s&quot;/user/</span><span class="si">${</span><span class="n">username</span><span class="si">}</span><span class="s">/warehouse&quot;</span><span class="o">).</span>
+    <span class="n">config</span><span class="o">(</span><span class="s">&quot;spark.sql.warehouse.dir&quot;</span><span class="o">,</span> <span class="s">&quot;/user/itversity/warehouse&quot;</span><span class="o">).</span>
     <span class="n">enableHiveSupport</span><span class="o">.</span>
-    <span class="n">appName</span><span class="o">(</span><span class="s">s&quot;</span><span class="si">${</span><span class="n">username</span><span class="si">}</span><span class="s"> | Spark SQL - Managing Tables - Basic DDL and DML&quot;</span><span class="o">).</span>
+    <span class="n">appName</span><span class="o">(</span><span class="s">&quot;Spark SQL - Managing Tables - Basic DDL and DML&quot;</span><span class="o">).</span>
     <span class="n">master</span><span class="o">(</span><span class="s">&quot;yarn&quot;</span><span class="o">).</span>
     <span class="n">getOrCreate</span>
 </pre></div>
@@ -451,12 +444,8 @@
 </pre></div>
 </div>
 <div class="section" id="create-spark-metastore-tables">
-<h2><span class="section-number">3.1. </span>Create Spark Metastore Tables<a class="headerlink" href="#create-spark-metastore-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Create Spark Metastore Tables<a class="headerlink" href="#create-spark-metastore-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to create tables in Spark Metastore. We will be focusing on syntax and semantics.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/OUu7paD9ojk?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Let us drop and recreate the table. We need to determine table type, file format based up on the files that will be copied to the table. If the file format is delimited text file then we need to understand field delimiter as well.</p>
 <ul>
@@ -801,12 +790,8 @@ INSERT INTO students VALUES (&#39;Scott&#39;, &#39;Tiger&#39;, 1, NULL, NULL)
 </div>
 </div>
 <div class="section" id="overview-of-data-types">
-<h2><span class="section-number">3.2. </span>Overview of Data Types<a class="headerlink" href="#overview-of-data-types" title="Permalink to this headline">¶</a></h2>
+<h2>Overview of Data Types<a class="headerlink" href="#overview-of-data-types" title="Permalink to this headline">¶</a></h2>
 <p>Let us get an overview of Data Types.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/i0QPCVGR_nk?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Syntactically Hive and Spark SQL are almost same.</p></li>
 <li><p>Go to this <a class="reference external" href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL">hive page</a> and review supported data types.</p></li>
@@ -1037,12 +1022,8 @@ INSERT INTO students VALUES
 </div>
 </div>
 <div class="section" id="adding-comments">
-<h2><span class="section-number">3.3. </span>Adding Comments<a class="headerlink" href="#adding-comments" title="Permalink to this headline">¶</a></h2>
+<h2>Adding Comments<a class="headerlink" href="#adding-comments" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to create table with comments in Hive using orders as example.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/4aZ8RIMMkUk?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>We can specify comments for both columns as well as tables using COMMENT keyword.</p></li>
 </ul>
@@ -1140,12 +1121,8 @@ CREATE TABLE orders (
 </div>
 </div>
 <div class="section" id="loading-data-into-tables-local">
-<h2><span class="section-number">3.4. </span>Loading Data into Tables - Local<a class="headerlink" href="#loading-data-into-tables-local" title="Permalink to this headline">¶</a></h2>
+<h2>Loading Data into Tables - Local<a class="headerlink" href="#loading-data-into-tables-local" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to load data into Spark Metastore tables. We can load either from local file system or from HDFS.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/3leee3drHs0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Data should be in sync with Spark Metastore table structure.</p></li>
 <li><p>We need to create table with the same file format and delimiters so that we can load the data in files into Spark Metastore tables.</p></li>
@@ -1257,12 +1234,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39; INTO TABLE orders
 </div>
 </div>
 <div class="section" id="loading-data-into-tables-hdfs">
-<h2><span class="section-number">3.5. </span>Loading Data into Tables - HDFS<a class="headerlink" href="#loading-data-into-tables-hdfs" title="Permalink to this headline">¶</a></h2>
+<h2>Loading Data into Tables - HDFS<a class="headerlink" href="#loading-data-into-tables-hdfs" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how we can load data from HDFS location into Spark Metastore table.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/QLl0xvnQsTg?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>We can use load command with out <strong>LOCAL</strong> to get data from HDFS location into Spark Metastore Table.</p></li>
 <li><p>User running load command from HDFS location need to have write permissions on the source location as data will be moved (deleted on source and copied to Spark Metastore table)</p></li>
@@ -1421,12 +1394,8 @@ LOAD DATA INPATH &#39;/user/itversity/retail_db/orders&#39;
 </ul>
 </div>
 <div class="section" id="loading-data-append-and-overwrite">
-<h2><span class="section-number">3.6. </span>Loading Data - Append and Overwrite<a class="headerlink" href="#loading-data-append-and-overwrite" title="Permalink to this headline">¶</a></h2>
+<h2>Loading Data - Append and Overwrite<a class="headerlink" href="#loading-data-append-and-overwrite" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand different approaches to load the data into Spark Metastore table.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/dL4tSw-WGns?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INTO</span> <span class="pre">TABLE</span></code> will append in the existing table</p></li>
 <li><p>If we want to overwrite we have to specify <code class="docutils literal notranslate"><span class="pre">OVERWRITE</span> <span class="pre">INTO</span> <span class="pre">TABLE</span></code></p></li>
@@ -1582,12 +1551,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </div>
 </div>
 <div class="section" id="creating-external-tables">
-<h2><span class="section-number">3.7. </span>Creating External Tables<a class="headerlink" href="#creating-external-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Creating External Tables<a class="headerlink" href="#creating-external-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to create external table in Spark Metastore using orders as example. Also we will see how to load data into external table.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/p8IyQe9qApY?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>We just need to add <strong>EXTERNAL</strong> keyword in the <strong>CREATE</strong> clause and <strong>LOCATION</strong> after <strong>STORED AS</strong> clause or just <strong>LOCATION</strong> as part of <strong>CREATE TABLE</strong> statement.</p></li>
 <li><p>We can use same LOAD commands to get data from either local file system or HDFS which we have used for Managed table.</p></li>
@@ -1703,12 +1668,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </div>
 </div>
 <div class="section" id="managed-tables-vs-external-tables">
-<h2><span class="section-number">3.8. </span>Managed Tables vs. External Tables<a class="headerlink" href="#managed-tables-vs-external-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Managed Tables vs. External Tables<a class="headerlink" href="#managed-tables-vs-external-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us compare and contrast between Managed Tables and External Tables.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/SUWyUWrHkKE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>When we say EXTERNAL and specify LOCATION or LOCATION alone as part of CREATE TABLE, it makes the table EXTERNAL.</p></li>
 <li><p>Rest of the syntax is same as Managed Table.</p></li>
@@ -1796,12 +1757,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </div>
 </div>
 <div class="section" id="overview-of-file-formats">
-<h2><span class="section-number">3.9. </span>Overview of File Formats<a class="headerlink" href="#overview-of-file-formats" title="Permalink to this headline">¶</a></h2>
+<h2>Overview of File Formats<a class="headerlink" href="#overview-of-file-formats" title="Permalink to this headline">¶</a></h2>
 <p>Let us go through the details about different file formats supported by STORED AS Clause.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/3WqAMpvCDQ0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Go to this <a class="reference external" href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL">page</a> and review supported file formats.</p></li>
 <li><p>Supported File Formats</p>
@@ -1914,12 +1871,8 @@ INSERT INTO students VALUES
 </div>
 </div>
 <div class="section" id="dropping-tables-and-databases">
-<h2><span class="section-number">3.10. </span>Dropping Tables and Databases<a class="headerlink" href="#dropping-tables-and-databases" title="Permalink to this headline">¶</a></h2>
+<h2>Dropping Tables and Databases<a class="headerlink" href="#dropping-tables-and-databases" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to DROP Spark Metastore Tables as well as Databases.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/3ZFkdGkTEiM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>We can use <strong>DROP TABLE</strong> command to drop the table.. Let us drop orders table</p></li>
 </ul>
@@ -2008,12 +1961,8 @@ INSERT INTO students VALUES
 </div>
 </div>
 <div class="section" id="truncating-tables">
-<h2><span class="section-number">3.11. </span>Truncating Tables<a class="headerlink" href="#truncating-tables" title="Permalink to this headline">¶</a></h2>
+<h2>Truncating Tables<a class="headerlink" href="#truncating-tables" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to truncate tables.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZUk228BZj4w?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p><strong>TRUNCATE</strong> works only for managed tables. Only data will be deleted, structure will be retained.</p></li>
 <li><p>Launch Spark SQL</p></li>
@@ -2150,12 +2099,8 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 </div>
 </div>
 <div class="section" id="managed-tables-exercise">
-<h2><span class="section-number">3.12. </span>Managed Tables - Exercise<a class="headerlink" href="#managed-tables-exercise" title="Permalink to this headline">¶</a></h2>
+<h2>Managed Tables - Exercise<a class="headerlink" href="#managed-tables-exercise" title="Permalink to this headline">¶</a></h2>
 <p>Let us use NYSE data and see how we can create tables in Spark Metastore.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/Ag7tkdhewcM?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
-</div>
 <ul class="simple">
 <li><p>Duration: <strong>30 Minutes</strong></p></li>
 <li><p>Data Location (Local): /data/nyse_all/nyse_data</p></li>
@@ -2175,7 +2120,7 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
 <li><p>Make sure the data is copied into the table as per the structure defined and validate.</p></li>
 </ul>
 <div class="section" id="validation">
-<h3><span class="section-number">3.12.1. </span>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+<h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
 <p>Run the following queries to ensure that you will be able to read the data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DESCRIBE</span> <span class="n">FORMATTED</span> <span class="n">YOUR_OS_USER_NAME_nyse</span><span class="o">.</span><span class="n">nyse_eod</span><span class="p">;</span>
 <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">YOUR_OS_USER_NAME_nyse</span><span class="o">.</span><span class="n">nyse_eod</span> <span class="n">LIMIT</span> <span class="mi">10</span>
@@ -2225,7 +2170,7 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
         },
         kernelOptions: {
             kernelName: "apache_toree_scala",
-            path: "./spark-sql"
+            path: "./archive_20201117/spark-sql"
         },
         predefinedOutput: true
     }
@@ -2240,8 +2185,6 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="02_basic_transformations.html" title="previous page"><span class="section-number">2. </span>Basic Transformations</a>
-    <a class='right-next' id="next-link" href="04_dml_and_partitioning.html" title="next page"><span class="section-number">4. </span>DML and Partitioning</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -2261,7 +2204,7 @@ LOAD DATA LOCAL INPATH &#39;/data/retail_db/orders&#39;
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     
