@@ -335,38 +335,75 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-lead-and-lag-values">
-   6.4. Getting LEAD and LAG values
+  <a class="reference internal nav-link" href="#cumulative-or-moving-aggregations">
+   6.4. Cumulative or Moving Aggregations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-lead-or-lag">
+   6.5. Using LEAD or LAG
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-first-and-last-values">
-   6.5. Getting first and last values
+   6.6. Getting first and last values
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ranking-using-windowing-functions">
-   6.6. Ranking using Windowing Functions
+   6.7. Ranking using Windowing Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#understanding-order-of-execution-of-sql">
-   6.7. Understanding order of execution of SQL
+  <a class="reference internal nav-link" href="#order-of-execution-of-sql">
+   6.8. Order of execution of SQL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview-of-nested-sub-queries">
-   6.8. Overview of Nested Sub Queries
+  <a class="reference internal nav-link" href="#overview-of-sub-queries">
+   6.9. Overview of Sub Queries
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#filtering-window-function-results">
-   6.9. Filtering - Window Function Results
+   6.10. Filtering - Window Function Results
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ranking-and-filtering-recap">
-     6.9.1. Ranking and Filtering - Recap
+     6.10.1. Ranking and Filtering - Recap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-windowing-functions">
+   6.11. Exercises - Windowing Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1">
+     6.11.1. Exercise 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2">
+     6.11.2. Exercise 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-3">
+     6.11.3. Exercise 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4">
+     6.11.4. Exercise 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-5">
+     6.11.5. Exercise 5
     </a>
    </li>
   </ul>
@@ -385,6 +422,10 @@
   <div class="section" id="windowing-functions">
 <h1><span class="section-number">6. </span>Windowing Functions<a class="headerlink" href="#windowing-functions" title="Permalink to this headline">¶</a></h1>
 <p>As part of this section we will primarily talk about Windowing Functions. These are also known as Analytic Functions in Databases like Oracle.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/wkYC9crqHH8?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Prepare HR Database</p></li>
 <li><p>Overview of Windowing Functions</p></li>
@@ -425,6 +466,10 @@
 <div class="section" id="prepare-hr-database">
 <h2><span class="section-number">6.1. </span>Prepare HR Database<a class="headerlink" href="#prepare-hr-database" title="Permalink to this headline">¶</a></h2>
 <p>Let us prepare HR database with <strong>EMPLOYEES</strong> Table. We will be using this for some of the examples as well as exercises related to Window Functions.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/ooxBTw_UU3U?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Create Database <strong>itversity_hr</strong> (replace itversity with your OS User Name)</p></li>
 <li><p>Create table <strong>employees</strong> in <strong>itversity_hr</strong> database.</p></li>
@@ -531,6 +576,10 @@ INTO TABLE employees
 <div class="section" id="overview-of-windowing-functions">
 <h2><span class="section-number">6.2. </span>Overview of Windowing Functions<a class="headerlink" href="#overview-of-windowing-functions" title="Permalink to this headline">¶</a></h2>
 <p>Let us get an overview of Analytics or Windowing Functions in Spark SQL.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/psc34WIg3ew?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>Aggregate Functions (<code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">avg</span></code>)</p></li>
 <li><p>Window Functions (<code class="docutils literal notranslate"><span class="pre">lead</span></code>, <code class="docutils literal notranslate"><span class="pre">lag</span></code>, <code class="docutils literal notranslate"><span class="pre">first_value</span></code>, <code class="docutils literal notranslate"><span class="pre">last_value</span></code>)</p></li>
@@ -576,6 +625,10 @@ INTO TABLE employees
 <div class="section" id="aggregations-using-windowing-functions">
 <h2><span class="section-number">6.3. </span>Aggregations using Windowing Functions<a class="headerlink" href="#aggregations-using-windowing-functions" title="Permalink to this headline">¶</a></h2>
 <p>Let us see how we can perform aggregations with in a partition or group using Windowing/Analytics Functions.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/peDMzBredoU?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
 <li><p>For simple aggregations where we have to get grouping key and aggregated results we can use <strong>GROUP BY</strong>.</p></li>
 <li><p>If we want to get the raw data along with aggregated results, then using <strong>GROUP BY</strong> is not possible or overly complicated.</p></li>
@@ -782,9 +835,169 @@ GROUP BY o.order_date, oi.order_item_product_id
 </div>
 </div>
 </div>
-<div class="section" id="getting-lead-and-lag-values">
-<h2><span class="section-number">6.4. </span>Getting LEAD and LAG values<a class="headerlink" href="#getting-lead-and-lag-values" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cumulative-or-moving-aggregations">
+<h2><span class="section-number">6.4. </span>Cumulative or Moving Aggregations<a class="headerlink" href="#cumulative-or-moving-aggregations" title="Permalink to this headline">¶</a></h2>
+<p>Let us understand how we can take care of cumulative or moving aggregations using Spark SQL.</p>
+<ul class="simple">
+<li><p>When it comes to Windowing or Analytic Functions we can also specify window using <code class="docutils literal notranslate"><span class="pre">ROWS</span> <span class="pre">BETWEEN</span></code> clause.</p></li>
+<li><p>We can leverage <code class="docutils literal notranslate"><span class="pre">ROWS</span> <span class="pre">BETWEEN</span></code> for cumulative aggregations or moving aggregations.</p></li>
+<li><p>Here is an example of cumulative sum.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">USE</span> <span class="n">itversity_hr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="n">employee_id</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="n">department_id</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="n">salary</span><span class="o">,</span>
+    <span class="n">sum</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">salary</span><span class="o">)</span> <span class="nc">OVER</span> <span class="o">(</span>
+        <span class="nc">PARTITION</span> <span class="nc">BY</span> <span class="n">e</span><span class="o">.</span><span class="n">department_id</span>
+        <span class="nc">ORDER</span> <span class="nc">BY</span> <span class="n">e</span><span class="o">.</span><span class="n">salary</span> <span class="nc">DESC</span>
+        <span class="nc">ROWS</span> <span class="nc">BETWEEN</span> <span class="nc">UNBOUNDED</span> <span class="nc">PRECEDING</span> <span class="nc">AND</span> <span class="nc">CURRENT</span> <span class="nc">ROW</span>
+    <span class="o">)</span> <span class="nc">AS</span> <span class="n">sum_sal_expense</span>
+<span class="nc">FROM</span> <span class="n">employees</span> <span class="n">e</span>
+<span class="nc">ORDER</span> <span class="nc">BY</span> <span class="n">e</span><span class="o">.</span><span class="n">department_id</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="n">salary</span> <span class="nc">DESC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">USE</span> <span class="n">itversity_retail</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>%%sql
+
+SELECT t.*,
+    round(sum(t.revenue) OVER (
+        PARTITION BY date_format(order_date, &#39;yyyy-MM&#39;)
+        ORDER BY order_date
+        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+    ), 2) AS cumulative_daily_revenue
+FROM daily_revenue t
+ORDER BY date_format(order_date, &#39;yyyy-MM&#39;),
+    order_date
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">SELECT t.*,</span>
+<span class="s">    round(sum(t.revenue) OVER (</span>
+<span class="s">        PARTITION BY date_format(order_date, &#39;yyyy-MM&#39;)</span>
+<span class="s">        ORDER BY order_date</span>
+<span class="s">        ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</span>
+<span class="s">    ), 2) AS cumulative_daily_revenue</span>
+<span class="s">FROM daily_revenue t</span>
+<span class="s">ORDER BY date_format(order_date, &#39;yyyy-MM&#39;), </span>
+<span class="s">    order_date</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">).</span>
+    <span class="n">show</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Here is an example for moving sum.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">USE</span> <span class="n">itversity_retail</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">SELECT</span> <span class="n">t</span><span class="o">.*,</span>
+    <span class="n">round</span><span class="o">(</span><span class="n">sum</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="n">revenue</span><span class="o">)</span> <span class="nc">OVER</span> <span class="o">(</span>
+        <span class="nc">ORDER</span> <span class="nc">BY</span> <span class="n">order_date</span>
+        <span class="nc">ROWS</span> <span class="nc">BETWEEN</span> <span class="mi">3</span> <span class="nc">PRECEDING</span> <span class="nc">AND</span> <span class="nc">CURRENT</span> <span class="nc">ROW</span>
+    <span class="o">),</span> <span class="mi">2</span><span class="o">)</span> <span class="nc">AS</span> <span class="n">moving_3day_revenue</span>
+<span class="nc">FROM</span> <span class="n">daily_revenue</span> <span class="n">t</span>
+<span class="nc">ORDER</span> <span class="nc">BY</span> <span class="n">order_date</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    SELECT t.*,</span>
+<span class="s">        round(sum(t.revenue) OVER (</span>
+<span class="s">            ORDER BY order_date</span>
+<span class="s">            ROWS BETWEEN 3 PRECEDING AND CURRENT ROW</span>
+<span class="s">        ), 2) AS moving_3day_revenue</span>
+<span class="s">    FROM daily_revenue t</span>
+<span class="s">    ORDER BY order_date</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">).</span>
+    <span class="n">show</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>%%sql
+
+SELECT t.*,
+    round(sum(t.revenue) OVER (
+        PARTITION BY date_format(order_date, &#39;yyyy-MM&#39;)
+        ORDER BY order_date
+        ROWS BETWEEN 3 PRECEDING AND CURRENT ROW
+    ), 2) AS moving_3day_revenue
+FROM daily_revenue t
+ORDER BY date_format(order_date, &#39;yyyy-MM&#39;),
+    order_date
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">SELECT t.*,</span>
+<span class="s">    round(sum(t.revenue) OVER (</span>
+<span class="s">        PARTITION BY date_format(order_date, &#39;yyyy-MM&#39;)</span>
+<span class="s">        ORDER BY order_date</span>
+<span class="s">        ROWS BETWEEN 3 PRECEDING AND CURRENT ROW</span>
+<span class="s">    ), 2) AS moving_3day_revenue</span>
+<span class="s">FROM daily_revenue t</span>
+<span class="s">ORDER BY date_format(order_date, &#39;yyyy-MM&#39;), </span>
+<span class="s">    order_date</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">).</span>
+    <span class="n">show</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-lead-or-lag">
+<h2><span class="section-number">6.5. </span>Using LEAD or LAG<a class="headerlink" href="#using-lead-or-lag" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand LEAD and LAG functions to get column values from following or prior records.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/BhWIslXAebo?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <p>Here is the example where we can get prior or following records based on <strong>ORDER BY</strong> within <strong>OVER</strong> Clause.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -999,8 +1212,12 @@ LIMIT 10
 </div>
 </div>
 <div class="section" id="getting-first-and-last-values">
-<h2><span class="section-number">6.5. </span>Getting first and last values<a class="headerlink" href="#getting-first-and-last-values" title="Permalink to this headline">¶</a></h2>
-<p>Let us see how we can get first and last value based on the criteria. We can also use min or max as well.</p>
+<h2><span class="section-number">6.6. </span>Getting first and last values<a class="headerlink" href="#getting-first-and-last-values" title="Permalink to this headline">¶</a></h2>
+<p>Let us see how we can get first and last value based on the criteria.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/0kJ-ZdOJnKQ?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <p>Here is the example of using first_value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1047,7 +1264,7 @@ LIMIT 10
 </div>
 </div>
 </div>
-<p>Let us see an example with last_value. While using last_value we need to specify <strong>ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING/PRECEEDING</strong>.</p>
+<p>Let us see an example with last_value. While using last_value we need to specify <strong>ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING</strong>.</p>
 <ul class="simple">
 <li><p>By default it uses <code class="docutils literal notranslate"><span class="pre">ROWS</span> <span class="pre">BETWEEN</span> <span class="pre">UNBOUNDED</span> <span class="pre">PRECEDING</span> <span class="pre">AND</span> <span class="pre">CURRENT</span> <span class="pre">ROW</span></code>.</p></li>
 <li><p>The last value with in <code class="docutils literal notranslate"><span class="pre">UNBOUNDED</span> <span class="pre">PRECEDING</span> <span class="pre">AND</span> <span class="pre">CURRENT</span> <span class="pre">ROW</span></code> will be current record.</p></li>
@@ -1123,14 +1340,19 @@ LIMIT 10
 </div>
 </div>
 <div class="section" id="ranking-using-windowing-functions">
-<h2><span class="section-number">6.6. </span>Ranking using Windowing Functions<a class="headerlink" href="#ranking-using-windowing-functions" title="Permalink to this headline">¶</a></h2>
-<p>Let us see how we can get sparse ranks using <strong>rank</strong> function.</p>
+<h2><span class="section-number">6.7. </span>Ranking using Windowing Functions<a class="headerlink" href="#ranking-using-windowing-functions" title="Permalink to this headline">¶</a></h2>
+<p>Let us see how we can assign ranks using different <strong>rank</strong> functions.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/NsqHuZbUrAw?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
-<li><p>If we have to get ranks globally, we just need to specify <strong>ORDER BY</strong></p></li>
-<li><p>If we have to get ranks with in a key then we need to specify <strong>PARTITION BY</strong> and then <strong>ORDER BY</strong>.</p></li>
+<li><p>If we have to assign ranks globally, we just need to specify <strong>ORDER BY</strong></p></li>
+<li><p>If we have to assign ranks with in a key then we need to specify <strong>PARTITION BY</strong> and then <strong>ORDER BY</strong>.</p></li>
 <li><p>By default <strong>ORDER BY</strong> will sort the data in ascending order. We can change the order by passing <strong>DESC</strong> after order by.</p></li>
+<li><p>We have 3 main functions to assign ranks - <code class="docutils literal notranslate"><span class="pre">rank</span></code>, <code class="docutils literal notranslate"><span class="pre">dense_rank</span></code> and <code class="docutils literal notranslate"><span class="pre">row_number</span></code>. We will see the difference between the 3 in a moment.</p></li>
 </ul>
-<p>Here is an example to assign sparse ranks using daily_product_revenue with in each day based on revenue.</p>
+<p>Here is an example to assign sparse ranks using the table daily_product_revenue with in each day based on revenue. We can use <code class="docutils literal notranslate"><span class="pre">rank</span></code> function to assign sparse ranks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1156,7 +1378,10 @@ LIMIT 10
 </div>
 </div>
 </div>
-<p>Here is another example to assign sparse ranks using employees data set with in each department.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is another example to assign ranks using employees data set with in each department. We can also use other functions such as <code class="docutils literal notranslate"><span class="pre">dense_rank</span></code> and <code class="docutils literal notranslate"><span class="pre">row_number</span></code> to assign ranks.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1194,12 +1419,43 @@ LIMIT 10
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">SELECT</span>
+<span class="s">  employee_id,</span>
+<span class="s">  department_id,</span>
+<span class="s">  salary,</span>
+<span class="s">  rank() OVER (</span>
+<span class="s">    PARTITION BY department_id</span>
+<span class="s">    ORDER BY salary DESC</span>
+<span class="s">  ) rnk,</span>
+<span class="s">  dense_rank() OVER (</span>
+<span class="s">    PARTITION BY department_id</span>
+<span class="s">    ORDER BY salary DESC</span>
+<span class="s">  ) drnk,</span>
+<span class="s">  row_number() OVER (</span>
+<span class="s">    PARTITION BY department_id</span>
+<span class="s">    ORDER BY salary DESC, employee_id</span>
+<span class="s">  ) rn</span>
+<span class="s">FROM employees</span>
+<span class="s">ORDER BY department_id, salary DESC</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">).</span>
+    <span class="n">show</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="nc">SELECT</span> <span class="o">*</span> <span class="nc">FROM</span> <span class="n">employees</span> <span class="nc">ORDER</span> <span class="nc">BY</span> <span class="n">salary</span> <span class="nc">LIMIT</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is the example for global rank with out <code class="docutils literal notranslate"><span class="pre">PARTITION</span> <span class="pre">BY</span></code> clause.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1214,14 +1470,18 @@ LIMIT 10
 </div>
 <p>Let us understand the difference between <strong>rank</strong>, <strong>dense_rank</strong> and <strong>row_number</strong>.</p>
 <ul class="simple">
-<li><p>We can either of the functions to generate ranks when the rank field does not have duplicates.</p></li>
-<li><p>When rank field have duplicates then row_number should not be used as it generate unique number for each record with in the partition.</p></li>
-<li><p><strong>rank</strong> will skip the ranks in between if multiple people get the same rank while <strong>dense_rank</strong> continue with the next number.</p></li>
+<li><p>We can use either of the functions to generate ranks when there are no duplicates in the column based on which ranks are assigned.</p></li>
+<li><p>When the column based on which ranks are assigned have duplicates then row_number should not be used as it generate unique number for each record with in the partition. For those duplicate values, the row number need not be same across multiple runs.</p></li>
+<li><p><strong>rank</strong> will skip the ranks in between if multiple people get the same rank while <strong>dense_rank</strong> will not skip the ranks based up on the number of times the value is repeated.</p></li>
 </ul>
 </div>
-<div class="section" id="understanding-order-of-execution-of-sql">
-<h2><span class="section-number">6.7. </span>Understanding order of execution of SQL<a class="headerlink" href="#understanding-order-of-execution-of-sql" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="order-of-execution-of-sql">
+<h2><span class="section-number">6.8. </span>Order of execution of SQL<a class="headerlink" href="#order-of-execution-of-sql" title="Permalink to this headline">¶</a></h2>
 <p>Let us review the order of execution of SQL. First let us review the order of writing the query.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/UNCJNFMyr6c?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ol class="simple">
 <li><p><strong>SELECT</strong></p></li>
 <li><p><strong>FROM</strong></p></li>
@@ -1230,7 +1490,7 @@ LIMIT 10
 <li><p><strong>GROUP BY</strong> and optionally <strong>HAVING</strong></p></li>
 <li><p><strong>ORDER BY</strong></p></li>
 </ol>
-<p>Let us come up with a query which will compute daily revenue using COMPLETE or CLOSED orders and also ordered by order_date.</p>
+<p>Let us come up with a query which will compute daily revenue using COMPLETE or CLOSED orders and also sorted by order_date.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1245,7 +1505,7 @@ LIMIT 10
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>%%sql
 
 SELECT o.order_date,
-  round(sum(oi.order_item_order_id), 2) AS revenue
+  round(sum(oi.order_item_subtotal), 2) AS revenue
 FROM orders o JOIN order_items oi
 ON o.order_id = oi.order_item_order_id
 WHERE o.order_status IN (&#39;COMPLETE&#39;, &#39;CLOSED&#39;)
@@ -1261,19 +1521,19 @@ LIMIT 10
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>%%sql
 
 SELECT o.order_date,
-    round(sum(oi.order_item_order_id), 2) AS revenue
+    round(sum(oi.order_item_subtotal), 2) AS revenue
 FROM orders o JOIN order_items oi
 ON o.order_id = oi.order_item_order_id
 WHERE o.order_status IN (&#39;COMPLETE&#39;, &#39;CLOSED&#39;)
 GROUP BY o.order_date
-    HAVING revenue &gt;= 2000000
+    HAVING round(sum(oi.order_item_subtotal), 2) &gt;= 50000
 ORDER BY order_date
 LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
-<p>However order of execution is different.</p>
+<p>However order of execution is typically as follows.</p>
 <ol class="simple">
 <li><p><strong>FROM</strong></p></li>
 <li><p><strong>JOIN</strong> or <strong>OUTER JOIN</strong> with <strong>ON</strong></p></li>
@@ -1282,16 +1542,72 @@ LIMIT 10
 <li><p><strong>SELECT</strong></p></li>
 <li><p><strong>ORDER BY</strong></p></li>
 </ol>
-<p>As <strong>SELECT</strong> is executed before <strong>ORDER BY</strong> Clause, we will not be able to refer the aliases in <strong>SELECT</strong> in other clauses except for <strong>ORDER BY</strong>.</p>
+<p>As <strong>SELECT</strong> is executed before <strong>ORDER BY</strong> clause, we will not be able to refer the aliases defined in <strong>SELECT</strong> caluse in other clauses except for <strong>ORDER BY</strong> in most of the traditional databases. However, in Spark we can specify the aliases defined in <strong>SELECT</strong> in <strong>HAVING</strong> as well as <strong>ORDER BY</strong>.</p>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>This will fail as revenue which is an alias defined in <strong>SELECT</strong> cannot be used in <strong>WHERE</strong>.</p>
 </div>
-<div class="section" id="overview-of-nested-sub-queries">
-<h2><span class="section-number">6.8. </span>Overview of Nested Sub Queries<a class="headerlink" href="#overview-of-nested-sub-queries" title="Permalink to this headline">¶</a></h2>
-<p>Let us recap about Nested Sub Queries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>%%sql
+
+SELECT o.order_date,
+    round(sum(oi.order_item_subtotal), 2) AS revenue
+FROM orders o JOIN order_items oi
+ON o.order_id = oi.order_item_order_id
+WHERE o.order_status IN (&#39;COMPLETE&#39;, &#39;CLOSED&#39;)
+    AND revenue &gt;= 50000
+GROUP BY o.order_date
+ORDER BY order_date
+LIMIT 10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will work as revenue which is an alias defined in <strong>SELECT</strong> can be used in <strong>HAVING</strong> as well as <strong>ORDER BY</strong>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>%%sql
+
+SELECT o.order_date,
+    round(sum(oi.order_item_subtotal), 2) AS revenue
+FROM orders o JOIN order_items oi
+ON o.order_id = oi.order_item_order_id
+WHERE o.order_status IN (&#39;COMPLETE&#39;, &#39;CLOSED&#39;)
+GROUP BY o.order_date
+    HAVING revenue &gt;= 50000
+ORDER BY order_date,
+    revenue DESC
+LIMIT 10
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="overview-of-sub-queries">
+<h2><span class="section-number">6.9. </span>Overview of Sub Queries<a class="headerlink" href="#overview-of-sub-queries" title="Permalink to this headline">¶</a></h2>
+<p>Let us recap about Sub Queries.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/6AOlttTRG48?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
-<li><p>We typically have Nested Sub Queries in <strong>FROM</strong> Clause.</p></li>
-<li><p>We need to provide alias to the Nested Sub Queries in <strong>FROM</strong> Clause in Spark SQL.</p></li>
-<li><p>We use nested queries quite often over queries using Analytics/Windowing Functions</p></li>
+<li><p>We typically have Sub Queries in <strong>FROM</strong> Clause.</p></li>
+<li><p>We need not provide alias to the Sub Queries in <strong>FROM</strong> Clause in Spark SQL. In earlier versions, you might have to provide alias for the Sub Query.</p></li>
+<li><p>We use Sub Queries quite often over queries using Analytics/Windowing Functions</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">SELECT</span> <span class="o">*</span> <span class="nc">FROM</span> <span class="o">(</span><span class="nc">SELECT</span> <span class="n">current_date</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1301,48 +1617,83 @@ LIMIT 10
 </div>
 </div>
 </div>
-<p>Let us see few more examples with respected to Nested Sub Queries.</p>
+<p>Let us see few more examples with respect to Sub Queries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">USE</span> <span class="n">itversity_retail</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="nc">SELECT</span> <span class="o">*</span> <span class="nc">FROM</span> <span class="o">(</span>
-  <span class="nc">SELECT</span> <span class="n">order_date</span><span class="o">,</span> <span class="n">count</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="nc">AS</span> <span class="n">order_count</span>
-  <span class="nc">FROM</span> <span class="n">orders</span>
-  <span class="nc">GROUP</span> <span class="nc">BY</span> <span class="n">order_date</span>
+    <span class="nc">SELECT</span> <span class="n">order_date</span><span class="o">,</span> <span class="n">count</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="nc">AS</span> <span class="n">order_count</span>
+    <span class="nc">FROM</span> <span class="n">orders</span>
+    <span class="nc">GROUP</span> <span class="nc">BY</span> <span class="n">order_date</span>
 <span class="o">)</span> <span class="n">q</span>
 <span class="nc">LIMIT</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is an example of how we can filter based up on the derived columns using sub query. However, this can be achieved with direct query as well using <code class="docutils literal notranslate"><span class="pre">HAVING</span></code>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="nc">SELECT</span> <span class="o">*</span> <span class="nc">FROM</span> <span class="o">(</span>
-  <span class="nc">SELECT</span> <span class="n">order_date</span><span class="o">,</span> <span class="n">count</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="nc">AS</span> <span class="n">order_count</span>
-  <span class="nc">FROM</span> <span class="n">orders</span>
-  <span class="nc">GROUP</span> <span class="nc">BY</span> <span class="n">order_date</span>
+    <span class="nc">SELECT</span> <span class="n">order_date</span><span class="o">,</span> <span class="n">count</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="nc">AS</span> <span class="n">order_count</span>
+    <span class="nc">FROM</span> <span class="n">orders</span>
+    <span class="nc">GROUP</span> <span class="nc">BY</span> <span class="n">order_date</span>
 <span class="o">)</span> <span class="n">q</span>
-<span class="nc">WHERE</span> <span class="n">q</span><span class="o">.</span><span class="n">order_count</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="nc">WHERE</span> <span class="n">q</span><span class="o">.</span><span class="n">order_count</span> <span class="o">&gt;</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>We can achieve using HAVING clause (no need to be nested to filter)</p></li>
-</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">SELECT</span> <span class="n">order_date</span><span class="o">,</span> <span class="n">count</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="nc">AS</span> <span class="n">order_count</span>
+<span class="nc">FROM</span> <span class="n">orders</span>
+<span class="nc">GROUP</span> <span class="nc">BY</span> <span class="n">order_date</span>
+    <span class="nc">HAVING</span> <span class="n">count</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="filtering-window-function-results">
-<h2><span class="section-number">6.9. </span>Filtering - Window Function Results<a class="headerlink" href="#filtering-window-function-results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.10. </span>Filtering - Window Function Results<a class="headerlink" href="#filtering-window-function-results" title="Permalink to this headline">¶</a></h2>
 <p>Let us understand how to filter on top of results of Window Functions.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/8ncS4CCdVA0?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+</div>
 <ul class="simple">
-<li><p>We can use Window Functions only in <strong>SELECT</strong> Clause.</p></li>
-<li><p>If we have to filter based on Window Function results, then we need to use Nested Sub Queries.</p></li>
-<li><p>Once the query is nested, we can apply filter using aliases of the Window Functions.</p></li>
+<li><p>We can use <strong>Window Functions</strong> only in <strong>SELECT</strong> Clause.</p></li>
+<li><p>If we have to filter based on Window Function results, then we need to use Sub Queries.</p></li>
+<li><p>Once the query with window functions is defined as sub query, we can apply filter using aliases provided for the Window Functions.</p></li>
 </ul>
 <p>Here is the example where we can filter data based on Window Functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="nc">USE</span> <span class="n">itversity_retail</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1355,22 +1706,40 @@ LIMIT 10
     <span class="o">)</span> <span class="nc">AS</span> <span class="n">drnk</span>
   <span class="nc">FROM</span> <span class="n">daily_product_revenue</span> <span class="n">t</span>
 <span class="o">)</span> <span class="n">q</span>
-<span class="nc">WHERE</span> <span class="n">drnk</span> <span class="o">&lt;=</span> <span class="mi">5</span>
+<span class="nc">WHERE</span> <span class="n">q</span><span class="o">.</span><span class="n">drnk</span> <span class="o">&lt;=</span> <span class="mi">5</span>
 <span class="nc">ORDER</span> <span class="nc">BY</span> <span class="n">q</span><span class="o">.</span><span class="n">order_date</span><span class="o">,</span> <span class="n">q</span><span class="o">.</span><span class="n">revenue</span> <span class="nc">DESC</span>
 <span class="nc">LIMIT</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="o">(</span><span class="s">&quot;&quot;&quot;SELECT * FROM (</span>
+<span class="s">  SELECT t.*,</span>
+<span class="s">    dense_rank() OVER (</span>
+<span class="s">      PARTITION BY order_date</span>
+<span class="s">      ORDER BY revenue DESC</span>
+<span class="s">    ) AS drnk</span>
+<span class="s">  FROM daily_product_revenue t</span>
+<span class="s">) q</span>
+<span class="s">WHERE q.drnk &lt;= 5</span>
+<span class="s">ORDER BY q.order_date, q.revenue DESC</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">).</span>
+    <span class="n">show</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="ranking-and-filtering-recap">
-<h3><span class="section-number">6.9.1. </span>Ranking and Filtering - Recap<a class="headerlink" href="#ranking-and-filtering-recap" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.10.1. </span>Ranking and Filtering - Recap<a class="headerlink" href="#ranking-and-filtering-recap" title="Permalink to this headline">¶</a></h3>
 <p>Let us recap the procedure to get top 5 orders by revenue for each day.</p>
 <ul class="simple">
 <li><p>We have our original data in <strong>orders</strong> and <strong>order_items</strong></p></li>
-<li><p>We can pre-compute the data or create a view with the logic to generate <strong>daily product revenue</strong></p></li>
-<li><p>Then, we have to use the view or table or even nested query to compute rank</p></li>
-<li><p>Once the ranks are computed, we need to nest it to filter based up on our requirement.</p></li>
-<li><p>Let us see using the query example.</p></li>
+<li><p>We can pre-compute the data and store in a table or create a view with the logic to generate <strong>daily product revenue</strong></p></li>
+<li><p>Then, we have to use the view or table or even sub query to compute rank</p></li>
+<li><p>We can use the query with ranks as sub query to filter so that we can get top 5 products by revenue.</p></li>
+<li><p>Let us see the overall process in action.</p></li>
 </ul>
 <p>Let us come up with the query to compute daily product revenue.</p>
 <div class="cell docutils container">
@@ -1426,7 +1795,11 @@ SELECT q.*,
   rank() OVER (
     PARTITION BY order_date
     ORDER BY revenue DESC
-  ) AS rnk
+  ) AS rnk,
+  dense_rank() OVER (
+    PARTITION BY order_date
+    ORDER BY revenue DESC
+  ) AS drnk
 FROM (SELECT o.order_date,
         oi.order_item_product_id,
         round(sum(oi.order_item_subtotal), 2) AS revenue
@@ -1488,6 +1861,578 @@ LIMIT 35
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="exercises-windowing-functions">
+<h2><span class="section-number">6.11. </span>Exercises - Windowing Functions<a class="headerlink" href="#exercises-windowing-functions" title="Permalink to this headline">¶</a></h2>
+<p>Let us take care of the exercises related to windowing or analytics functions. We will be using HR database for the same.</p>
+<ul class="simple">
+<li><p>Get all the employees who is making more than average salary with in each department.</p></li>
+<li><p>Get cumulative salary for one of the department along with department name.</p></li>
+<li><p>Get top 3 paid employees with in each department by salary (use dense_rank)</p></li>
+<li><p>Get top 3 products sold in the month of 2014 January by revenue.</p></li>
+<li><p>Get top 3 products in each category sold in the month of 2014 January by revenue.</p></li>
+</ul>
+<div class="section" id="exercise-1">
+<h3><span class="section-number">6.11.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<p>Get all the employees who is making more than average salary with in each department.</p>
+<ul class="simple">
+<li><p>Use HR database employees and department tables for this problem.</p></li>
+<li><p>Compute average salary expense for each department and get those employee details who are making more salary than average salary.</p></li>
+<li><p>Make sure average salary expense per department is rounded off to 2 decimals.</p></li>
+<li><p>Output should contain employee_id, department_name, salary and avg_salary_expense (derived field).</p></li>
+<li><p>Data should be sorted in ascending order by department_id and descending order by salary.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>employee_id</p></th>
+<th class="head"><p>department_name</p></th>
+<th class="head"><p>salary</p></th>
+<th class="head"><p>avg_salary_expense</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>201</p></td>
+<td><p>Marketing</p></td>
+<td><p>13000.00</p></td>
+<td><p>9500.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>114</p></td>
+<td><p>Purchasing</p></td>
+<td><p>11000.00</p></td>
+<td><p>4150.00</p></td>
+</tr>
+<tr class="row-even"><td><p>121</p></td>
+<td><p>Shipping</p></td>
+<td><p>8200.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>120</p></td>
+<td><p>Shipping</p></td>
+<td><p>8000.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-even"><td><p>122</p></td>
+<td><p>Shipping</p></td>
+<td><p>7900.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>123</p></td>
+<td><p>Shipping</p></td>
+<td><p>6500.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-even"><td><p>124</p></td>
+<td><p>Shipping</p></td>
+<td><p>5800.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>184</p></td>
+<td><p>Shipping</p></td>
+<td><p>4200.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-even"><td><p>185</p></td>
+<td><p>Shipping</p></td>
+<td><p>4100.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>192</p></td>
+<td><p>Shipping</p></td>
+<td><p>4000.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-even"><td><p>193</p></td>
+<td><p>Shipping</p></td>
+<td><p>3900.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>188</p></td>
+<td><p>Shipping</p></td>
+<td><p>3800.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-even"><td><p>137</p></td>
+<td><p>Shipping</p></td>
+<td><p>3600.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>189</p></td>
+<td><p>Shipping</p></td>
+<td><p>3600.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-even"><td><p>141</p></td>
+<td><p>Shipping</p></td>
+<td><p>3500.00</p></td>
+<td><p>3475.56</p></td>
+</tr>
+<tr class="row-odd"><td><p>103</p></td>
+<td><p>IT</p></td>
+<td><p>9000.00</p></td>
+<td><p>5760.00</p></td>
+</tr>
+<tr class="row-even"><td><p>104</p></td>
+<td><p>IT</p></td>
+<td><p>6000.00</p></td>
+<td><p>5760.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>145</p></td>
+<td><p>Sales</p></td>
+<td><p>14000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>146</p></td>
+<td><p>Sales</p></td>
+<td><p>13500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>147</p></td>
+<td><p>Sales</p></td>
+<td><p>12000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>168</p></td>
+<td><p>Sales</p></td>
+<td><p>11500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>148</p></td>
+<td><p>Sales</p></td>
+<td><p>11000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>174</p></td>
+<td><p>Sales</p></td>
+<td><p>11000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>149</p></td>
+<td><p>Sales</p></td>
+<td><p>10500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>162</p></td>
+<td><p>Sales</p></td>
+<td><p>10500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>156</p></td>
+<td><p>Sales</p></td>
+<td><p>10000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>150</p></td>
+<td><p>Sales</p></td>
+<td><p>10000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>169</p></td>
+<td><p>Sales</p></td>
+<td><p>10000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>170</p></td>
+<td><p>Sales</p></td>
+<td><p>9600.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>163</p></td>
+<td><p>Sales</p></td>
+<td><p>9500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>151</p></td>
+<td><p>Sales</p></td>
+<td><p>9500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>157</p></td>
+<td><p>Sales</p></td>
+<td><p>9500.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>158</p></td>
+<td><p>Sales</p></td>
+<td><p>9000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-odd"><td><p>152</p></td>
+<td><p>Sales</p></td>
+<td><p>9000.00</p></td>
+<td><p>8955.88</p></td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>Executive</p></td>
+<td><p>24000.00</p></td>
+<td><p>19333.33</p></td>
+</tr>
+<tr class="row-odd"><td><p>108</p></td>
+<td><p>Finance</p></td>
+<td><p>12000.00</p></td>
+<td><p>8600.00</p></td>
+</tr>
+<tr class="row-even"><td><p>109</p></td>
+<td><p>Finance</p></td>
+<td><p>9000.00</p></td>
+<td><p>8600.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>205</p></td>
+<td><p>Accounting</p></td>
+<td><p>12000.00</p></td>
+<td><p>10150.00</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise-2">
+<h3><span class="section-number">6.11.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h3>
+<p>Get cumulative salary with in each department for Finance and IT department along with department name.</p>
+<ul class="simple">
+<li><p>Use HR database employees and department tables for this problem.</p></li>
+<li><p>Compute cumulative salary expense for <strong>Finance</strong> as well as <strong>IT</strong> departments with in respective departments.</p></li>
+<li><p>Make sure cumulative salary expense per department is rounded off to 2 decimals.</p></li>
+<li><p>Output should contain employee_id, department_name, salary and cum_salary_expense (derived field).</p></li>
+<li><p>Data should be sorted in ascending order by department_name and then salary.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>employee_id</p></th>
+<th class="head"><p>department_name</p></th>
+<th class="head"><p>salary</p></th>
+<th class="head"><p>cum_salary_expense</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>113</p></td>
+<td><p>Finance</p></td>
+<td><p>6900.00</p></td>
+<td><p>6900.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>111</p></td>
+<td><p>Finance</p></td>
+<td><p>7700.00</p></td>
+<td><p>14600.00</p></td>
+</tr>
+<tr class="row-even"><td><p>112</p></td>
+<td><p>Finance</p></td>
+<td><p>7800.00</p></td>
+<td><p>22400.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>110</p></td>
+<td><p>Finance</p></td>
+<td><p>8200.00</p></td>
+<td><p>30600.00</p></td>
+</tr>
+<tr class="row-even"><td><p>109</p></td>
+<td><p>Finance</p></td>
+<td><p>9000.00</p></td>
+<td><p>39600.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>108</p></td>
+<td><p>Finance</p></td>
+<td><p>12000.00</p></td>
+<td><p>51600.00</p></td>
+</tr>
+<tr class="row-even"><td><p>107</p></td>
+<td><p>IT</p></td>
+<td><p>4200.00</p></td>
+<td><p>4200.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>106</p></td>
+<td><p>IT</p></td>
+<td><p>4800.00</p></td>
+<td><p>9000.00</p></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>IT</p></td>
+<td><p>4800.00</p></td>
+<td><p>13800.00</p></td>
+</tr>
+<tr class="row-odd"><td><p>104</p></td>
+<td><p>IT</p></td>
+<td><p>6000.00</p></td>
+<td><p>19800.00</p></td>
+</tr>
+<tr class="row-even"><td><p>103</p></td>
+<td><p>IT</p></td>
+<td><p>9000.00</p></td>
+<td><p>28800.00</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise-3">
+<h3><span class="section-number">6.11.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h3>
+<p>Get top 3 paid employees with in each department by salary (use dense_rank)</p>
+<ul class="simple">
+<li><p>Use HR database employees and department tables for this problem.</p></li>
+<li><p>Highest paid employee should be ranked first.</p></li>
+<li><p>Output should contain employee_id, department_id, department_name, salary and employee_rank (derived field).</p></li>
+<li><p>Data should be sorted in ascending order by department_id in ascending order and then salary in descending order.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>employee_id</p></th>
+<th class="head"><p>department_id</p></th>
+<th class="head"><p>department_name</p></th>
+<th class="head"><p>salary</p></th>
+<th class="head"><p>employee_rank</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>10</p></td>
+<td><p>Administration</p></td>
+<td><p>4400.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>201</p></td>
+<td><p>20</p></td>
+<td><p>Marketing</p></td>
+<td><p>13000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>202</p></td>
+<td><p>20</p></td>
+<td><p>Marketing</p></td>
+<td><p>6000.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>114</p></td>
+<td><p>30</p></td>
+<td><p>Purchasing</p></td>
+<td><p>11000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>115</p></td>
+<td><p>30</p></td>
+<td><p>Purchasing</p></td>
+<td><p>3100.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>116</p></td>
+<td><p>30</p></td>
+<td><p>Purchasing</p></td>
+<td><p>2900.00</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>203</p></td>
+<td><p>40</p></td>
+<td><p>Human Resources</p></td>
+<td><p>6500.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>121</p></td>
+<td><p>50</p></td>
+<td><p>Shipping</p></td>
+<td><p>8200.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>120</p></td>
+<td><p>50</p></td>
+<td><p>Shipping</p></td>
+<td><p>8000.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>122</p></td>
+<td><p>50</p></td>
+<td><p>Shipping</p></td>
+<td><p>7900.00</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>103</p></td>
+<td><p>60</p></td>
+<td><p>IT</p></td>
+<td><p>9000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>104</p></td>
+<td><p>60</p></td>
+<td><p>IT</p></td>
+<td><p>6000.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>60</p></td>
+<td><p>IT</p></td>
+<td><p>4800.00</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>106</p></td>
+<td><p>60</p></td>
+<td><p>IT</p></td>
+<td><p>4800.00</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>204</p></td>
+<td><p>70</p></td>
+<td><p>Public Relations</p></td>
+<td><p>10000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>145</p></td>
+<td><p>80</p></td>
+<td><p>Sales</p></td>
+<td><p>14000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>146</p></td>
+<td><p>80</p></td>
+<td><p>Sales</p></td>
+<td><p>13500.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>147</p></td>
+<td><p>80</p></td>
+<td><p>Sales</p></td>
+<td><p>12000.00</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>90</p></td>
+<td><p>Executive</p></td>
+<td><p>24000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>101</p></td>
+<td><p>90</p></td>
+<td><p>Executive</p></td>
+<td><p>17000.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>102</p></td>
+<td><p>90</p></td>
+<td><p>Executive</p></td>
+<td><p>17000.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>108</p></td>
+<td><p>100</p></td>
+<td><p>Finance</p></td>
+<td><p>12000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>109</p></td>
+<td><p>100</p></td>
+<td><p>Finance</p></td>
+<td><p>9000.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>110</p></td>
+<td><p>100</p></td>
+<td><p>Finance</p></td>
+<td><p>8200.00</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>205</p></td>
+<td><p>110</p></td>
+<td><p>Accounting</p></td>
+<td><p>12000.00</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>206</p></td>
+<td><p>110</p></td>
+<td><p>Accounting</p></td>
+<td><p>8300.00</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise-4">
+<h3><span class="section-number">6.11.4. </span>Exercise 4<a class="headerlink" href="#exercise-4" title="Permalink to this headline">¶</a></h3>
+<p>Get top 3 products sold in the month of 2014 January by revenue.</p>
+<ul class="simple">
+<li><p>Use retail database tables such as orders, order_items and products.</p></li>
+<li><p>Highest revenue generating product should come at top.</p></li>
+<li><p>Output should contain product_id, product_name, revenue, product_rank. <strong>revenue</strong> and <strong>product_rank</strong> are derived fields.</p></li>
+<li><p>Data should be sorted in descending order by revenue.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>product_id</p></th>
+<th class="head"><p>product_name</p></th>
+<th class="head"><p>revenue</p></th>
+<th class="head"><p>product_rank</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1004</p></td>
+<td><p>Field &amp; Stream Sportsman 16 Gun Fire Safe</p></td>
+<td><p>250787.46</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>365</p></td>
+<td><p>Perfect Fitness Perfect Rip Deck</p></td>
+<td><p>151474.75</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>957</p></td>
+<td><p>Diamondback Women’s Serene Classic Comfort Bi</p></td>
+<td><p>148190.12</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exercise-5">
+<h3><span class="section-number">6.11.5. </span>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h3>
+<p>Get top 3 products sold in the month of 2014 January under selected categories by revenue. The categories are <strong>Cardio Equipment</strong> and <strong>Strength Training</strong>.</p>
+<ul class="simple">
+<li><p>Use retail database tables such as orders, order_items, products as well as categories.</p></li>
+<li><p>Highest revenue generating product should come at top.</p></li>
+<li><p>Output should contain category_id, category_name, product_id, product_name, revenue, product_rank. revenue and product_rank are derived fields.</p></li>
+<li><p>Data should be sorted in ascending order by category_id and descending order by revenue.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>category_id</p></th>
+<th class="head"><p>category_name</p></th>
+<th class="head"><p>product_id</p></th>
+<th class="head"><p>product_name</p></th>
+<th class="head"><p>revenue</p></th>
+<th class="head"><p>product_rank</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Cardio Equipment</p></td>
+<td><p>191</p></td>
+<td><p>Nike Men’s Free 5.0+ Running Shoe</p></td>
+<td><p>132286.77</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Cardio Equipment</p></td>
+<td><p>172</p></td>
+<td><p>Nike Women’s Tempo Shorts</p></td>
+<td><p>870.00</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Strength Training</p></td>
+<td><p>208</p></td>
+<td><p>SOLE E35 Elliptical</p></td>
+<td><p>1999.99</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Strength Training</p></td>
+<td><p>203</p></td>
+<td><p>GoPro HERO3+ Black Edition Camera</p></td>
+<td><p>1199.97</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Strength Training</p></td>
+<td><p>216</p></td>
+<td><p>Yakima DoubleDown Ace Hitch Mount 4-Bike Rack</p></td>
+<td><p>189.00</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
